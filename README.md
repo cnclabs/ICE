@@ -8,6 +8,7 @@ Developed Environment:
 $ git clone https://github.com/CLIPLab/ICE
 $ cd ./ICE/ICE
 $ make
+$ ./cli
 ```
 
 # Example Input

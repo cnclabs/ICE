@@ -1,5 +1,4 @@
-# ICE
-Item Concept Embedding
+# ICE: Item Concept Embedding
 
 Developed Environment:
 - g++ > 4.9
@@ -29,7 +28,7 @@ The_Beatles England 1
 The_Beatles rock 1
 The_Beatles pop 1
 ```
-The model learns the representations of each vertex:
+The model learns the representations according to the relations:
 ```
 Mayday 0.356144 0.650535 0.418468 -2.62163
 Sodagreen 1.59218 1.55554 0.581035 0.173465

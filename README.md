@@ -11,6 +11,11 @@ $ make
 $ ./cli
 ```
 
+# Construct ICE graph
+```
+$ python graph.py -i ./data/lyrics.csv -m GoogleNews-vectors-negative300.bin.gz -o edgelist -t 0.9 -d 300
+```
+
 # Example Input
 Given a network input:
 ```txt

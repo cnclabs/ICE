@@ -3,7 +3,7 @@
 Developed Environment:
 - g++ > 4.9
 
-# Getting Started
+## Getting Started
 ```
 $ git clone https://github.com/CLIPLab/ICE
 $ cd ./ICE/ICE
@@ -11,12 +11,24 @@ $ make
 $ ./cli
 ```
 
-# Construct ICE graph
+## Construct ICE graph
 ```
 $ python graph.py -i ./data/lyrics.csv -m GoogleNews-vectors-negative300.bin.gz -o edgelist -t 0.9 -d 300
 ```
-
-# Example Input
+Parameters:
+```
+  -i <string>, --input <string>
+          Input File Name
+  -m <string>, --model <string>
+          Pretrained Word2Vec Model Path
+  -o <string>, --output <string>
+          Output File Name
+  -d <int>, --dim <int>     
+          word2vec dimension
+  -t <float>, --threshold <float>
+          annoy distance threshold to capture similar concept
+```
+## Example Input
 Given a network input:
 ```txt
 Mayday Taiwanese 1
@@ -42,7 +54,7 @@ SEKAI_NO_OWARI 1.5532 -1.02193 1.47116 0.20981
 The_Beatles -1.2945 0.467587 2.24252 -0.274896
 ```
 
-# Command Line Interface
+## Command Line Interface
 
 Parameters:
 ```

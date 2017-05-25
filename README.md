@@ -2,13 +2,20 @@
 
 Developed Environment:
 - g++ > 4.9
+- python3
+- cython
 
 ## Getting Started
+c++ compilation
 ```
 $ git clone https://github.com/CLIPLab/ICE
 $ cd ./ICE/ICE
-$ make
+$ make cli
 $ ./cli
+```
+python3 API compilation
+```
+make python
 ```
 
 ## Construct ICE graph
@@ -78,4 +85,16 @@ Options:
 Example Usage:
 ```
 ./cli -train network.txt -save rep.txt -dimensions 64 -sample_times 10 -negative_samples 5 -alpha 0.025 -threads 1
+```
+
+## Python3 API usage
+After the compilation of python3, see example.py for example usage
+```python
+from pyICE import pyICE
+
+ice = pyICE()
+ice.LoadEdgeList('./network.edgelist')
+ice.Init(dimension=4)
+ice.Train(sample_times=10, negative_samples=5, alpha=0.025, worker=1)
+ice.SaveWeights(model_name='ICE.rep')
 ```

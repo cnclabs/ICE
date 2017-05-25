@@ -30,13 +30,13 @@ vvNet::vvNet() {
 vvNet::~vvNet() {
 }
 
-unsigned int vvNet::BKDRHash(char *key) {
+unsigned int vvNet::BKDRHash(string& key) {
     
     unsigned int seed = 131; // 31 131 1313 13131 131313 etc..
     unsigned int hash = 0;
-    while (*key)
+    for(size_t i = 0; i < key.length(); i++)
     {
-        hash = hash * seed + (*key++);
+        hash = (hash * seed) + key[i];
     }
     return (hash % HASH_TABLE_SIZE);
 }
@@ -60,27 +60,27 @@ double vvNet::fastSigmoid(double x) {
     }
 }
 
-int vvNet::InsertHashTable(char *key)
+int vvNet::InsertHashTable(string key)
 {
     unsigned int pos = BKDRHash(key);
     while (hash_table[pos] != -1)
         pos = (pos + 1) % HASH_TABLE_SIZE;
     hash_table[pos] = MAX_vid;
-    kmap[ strdup(key) ] = MAX_vid;
-    keys.push_back( strdup(key) );
+    kmap[ key ] = MAX_vid;
+    keys.push_back( key );
     MAX_vid++;
 
     return MAX_vid-1;
 }
 
-int vvNet::SearchHashTable(char *key)
+int vvNet::SearchHashTable(string key)
 {
     unsigned int pos = BKDRHash(key);
     while (1)
     {
         if (hash_table[pos] == -1)
             return -1;
-        if ( !strcmp(key, keys[ hash_table[pos] ]) )
+        if ( key == keys[ hash_table[pos] ] )
             return hash_table[pos];
         pos = (pos + 1) % HASH_TABLE_SIZE;
     }

@@ -38,14 +38,6 @@ using namespace std;
     #define thread_local __thread
 #endif
 
-struct cmp_char
-{
-    bool operator()(char const *a, char const *b)
-    {
-        return strcmp(a, b) < 0;
-    }
-};
-
 class Vertex {
     public:
         long offset, branch;
@@ -82,8 +74,8 @@ class vvNet {
         
         // graph basics
         vector< long > hash_table;
-        vector< char* > keys;
-        map< char*, long, cmp_char > kmap;     // vertex map to index number
+        vector< string > keys;
+        map< string, long > kmap;     // vertex map to index number
 
         // Alias Graph
         vector< Vertex > vertex;
@@ -101,9 +93,9 @@ class vvNet {
         void BuildTargetAliasTable();
         
         // Key Process
-        unsigned int BKDRHash(char*);
-        int InsertHashTable(char*);
-        int SearchHashTable(char*);
+        unsigned int BKDRHash(string&);
+        int InsertHashTable(string);
+        int SearchHashTable(string);
         
         // Math-related Process
         double fastSigmoid(double);

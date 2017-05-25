@@ -36,6 +36,7 @@ Parameters:
           annoy distance threshold to capture similar concept
 ```
 ## Example Input
+network.txt
 ```txt
 Mayday Taiwanese 1
 Mayday rock 1
@@ -51,14 +52,6 @@ SEKAI_NO_OWARI band 1
 The_Beatles England 1
 The_Beatles rock 1
 The_Beatles pop 1
-```
-
-## Example Output (the Learned Representations)
-```txt
-Mayday 0.356144 0.650535 0.418468 -2.62163
-Sodagreen 1.59218 1.55554 0.581035 0.173465
-SEKAI_NO_OWARI 1.5532 -1.02193 1.47116 0.20981
-The_Beatles -1.2945 0.467587 2.24252 -0.274896
 ```
 
 ## Command Line Interface
@@ -85,6 +78,14 @@ Options:
 Example Usage:
 ```
 ./cli -train network.txt -save rep.txt -dimensions 64 -sample_times 10 -negative_samples 5 -alpha 0.025 -threads 1
+```
+
+## Example Output (the Learned Representations)
+```txt
+Mayday 0.356144 0.650535 0.418468 -2.62163
+Sodagreen 1.59218 1.55554 0.581035 0.173465
+SEKAI_NO_OWARI 1.5532 -1.02193 1.47116 0.20981
+The_Beatles -1.2945 0.467587 2.24252 -0.274896
 ```
 
 ## Python3 API usage

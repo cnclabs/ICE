@@ -20,13 +20,16 @@ void ICE::SaveWeights(string model_name){
     ofstream model(model_name);
     if (model)
     {
-        model << vvnet.MAX_vid << " " << dim << endl;
+        //model << vvnet.MAX_vid << " " << dim << endl;
         for (auto k: vvnet.keys)
         {
-            model << k;
-            for (int d=0; d<dim; ++d)
-                model << " " << w_vertex[vvnet.kmap[k]][d];
-            model << endl;
+            if (vvnet.vertex[vvnet.kmap[k]].branch > 0)
+            {
+                model << k;
+                for (int d=0; d<dim; ++d)
+                    model << " " << w_vertex[vvnet.kmap[k]][d];
+                model << endl;
+            }
         }
         cout << "\tSave to <" << model_name << ">" << endl;
     }

@@ -2,13 +2,20 @@
 
 Developed Environment:
 - g++ > 4.9
+- python3
+- cython
 
 ## Getting Started
+c++ compilation
 ```
 $ git clone https://github.com/CLIPLab/ICE
 $ cd ./ICE/ICE
-$ make
+$ make cli
 $ ./cli
+```
+python3 API compilation
+```
+make python
 ```
 
 ## Construct ICE graph
@@ -29,7 +36,6 @@ Parameters:
           annoy distance threshold to capture similar concept
 ```
 ## Example Input
-Given a network input:
 ```txt
 Mayday Taiwanese 1
 Mayday rock 1
@@ -46,8 +52,9 @@ The_Beatles England 1
 The_Beatles rock 1
 The_Beatles pop 1
 ```
-The model learns the representations according to the relations:
-```
+
+## Example Output (the Learned Representations)
+```txt
 Mayday 0.356144 0.650535 0.418468 -2.62163
 Sodagreen 1.59218 1.55554 0.581035 0.173465
 SEKAI_NO_OWARI 1.5532 -1.02193 1.47116 0.20981
@@ -78,4 +85,16 @@ Options:
 Example Usage:
 ```
 ./cli -train network.txt -save rep.txt -dimensions 64 -sample_times 10 -negative_samples 5 -alpha 0.025 -threads 1
+```
+
+## Python3 API usage
+After the compilation of python3, see example.py for example usage
+```python
+from pyICE import pyICE
+
+ice = pyICE()
+ice.LoadEdgeList('./network.edgelist')
+ice.Init(dimension=4)
+ice.Train(sample_times=10, negative_samples=5, alpha=0.025, worker=1)
+ice.SaveWeights(model_name='ICE.rep')
 ```

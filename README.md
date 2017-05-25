@@ -36,7 +36,6 @@ Parameters:
           annoy distance threshold to capture similar concept
 ```
 ## Example Input
-Given a network input:
 ```txt
 Mayday Taiwanese 1
 Mayday rock 1
@@ -53,8 +52,9 @@ The_Beatles England 1
 The_Beatles rock 1
 The_Beatles pop 1
 ```
-The model learns the representations according to the relations:
-```
+
+## Example Output (the Learned Representations)
+```txt
 Mayday 0.356144 0.650535 0.418468 -2.62163
 Sodagreen 1.59218 1.55554 0.581035 0.173465
 SEKAI_NO_OWARI 1.5532 -1.02193 1.47116 0.20981

@@ -14,6 +14,10 @@ void ICE::LoadItemConceptList(string filename) {
     vvnet.LoadItemConceptList(filename);
 }
 
+void ICE::LoadDict(unordered_map<string, unordered_map<string, double>>& graph) {
+    vvnet.LoadDict(graph);
+}
+
 void ICE::SaveWeights(string model_name){
     
     cout << "Save Model:" << endl;

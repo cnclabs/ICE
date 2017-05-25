@@ -307,6 +307,40 @@ void vvNet::LoadItemConceptList(string filename) {
 
 }
 
+void vvNet::LoadDict(unordered_map< string, unordered_map< string, double > > &graph) {
+    
+    long vid1, vid2;
+    unordered_map< long, unordered_map<long, double> > vv;     // vertex -> vertex: weight
+    
+    // generate keys lookup table (kmap) 
+    for (auto v1: graph)
+    {
+        vid1 = SearchHashTable(v1.first);
+        if (vid1 == -1)
+        {
+            vid1 = InsertHashTable(v1.first);
+        }
+
+        for (auto v2: v1.second)
+        {
+            vid2 = SearchHashTable(v2.first);
+            if (vid2 == -1)
+            {
+                vid2 = InsertHashTable(v2.first);
+            }
+
+            vv[vid1][vid2] = v2.second;
+            MAX_edge += 1;
+        }
+    }
+
+    cout << "Build the Alias Method:" << endl;
+    BuildAliasMethod(vv);
+    cout << "\tFinished." << endl;
+
+}
+
+
 void vvNet::BuildAliasMethod(unordered_map< long, unordered_map< long, double > > &graph) {
 
     // re-construct the graph

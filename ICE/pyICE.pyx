@@ -19,7 +19,7 @@ cdef extern from "./ICE.h":
 
         # graph function
         void LoadEdgeList(string)
-#        void LoadItemConceptList(string)
+        void LoadDict(unordered_map[string, unordered_map[string, double]])
         void SaveWeights(string)
 
         # model function
@@ -42,6 +42,15 @@ cdef class pyICE:
     
     def LoadEdgeList(self, filename):
         self.c_ICE.LoadEdgeList(filename.encode('utf-8'))
+
+    def LoadDict(self, _graph):
+        
+        cdef unordered_map[string, unordered_map[string, double]] graph
+        for v1 in _graph:
+            for v2 in _graph[v1]:
+                graph[v1.encode('utf-8')][v2.encode('utf-8')] = _graph[v1][v2]
+
+        self.c_ICE.LoadDict(graph)
 
     def SaveWeights(self, model_name='ICE.model'):
         self.c_ICE.SaveWeights(model_name.encode('utf-8'))

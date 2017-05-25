@@ -24,6 +24,7 @@ class ICE {
         // data function
         void LoadEdgeList(string);
         void LoadItemConceptList(string);
+        void LoadDict(unordered_map<string, unordered_map<string, double>>&);
         void SaveWeights(string);
         
         // model function

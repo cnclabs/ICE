@@ -103,6 +103,7 @@ class vvNet {
         // Data Process
         void LoadEdgeList(string);
         void LoadItemConceptList(string);
+        void LoadDict(unordered_map<string, unordered_map<string, double>>&);
         
         // Network Process
         long SourceSample();

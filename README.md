@@ -36,11 +36,14 @@ Parameters:
           annoy distance threshold to capture similar concept
 ```
 ## Example Input
-network.txt
+network.edgelist
 ```txt
-Mayday Taiwanese 1
-Mayday rock 1
-Mayday band 1
+五月天 Taiwanese 1
+五月天 rock 1
+五月天 band 1
+MAYDAY@ Taiwanese 1
+MAYDAY@ rock 1
+MAYDAY@ band 1
 Sodagreen Taiwanese 1
 Sodagreen indie 1
 Sodagreen pop_rock 1
@@ -77,15 +80,7 @@ Options:
 
 Example Usage:
 ```
-./cli -train network.txt -save rep.txt -dimensions 64 -sample_times 10 -negative_samples 5 -alpha 0.025 -threads 1
-```
-
-## Example Output (the Learned Representations)
-```txt
-Mayday 0.356144 0.650535 0.418468 -2.62163
-Sodagreen 1.59218 1.55554 0.581035 0.173465
-SEKAI_NO_OWARI 1.5532 -1.02193 1.47116 0.20981
-The_Beatles -1.2945 0.467587 2.24252 -0.274896
+./cli -train network.edgelist -save rep.txt -dimensions 4 -sample_times 10 -negative_samples 5 -alpha 0.025 -threads 1
 ```
 
 ## Python3 API usage
@@ -93,9 +88,24 @@ After the compilation of python3, see example.py for example usage
 ```python
 from pyICE import pyICE
 
+network = { '五月天':         {'Taiwanese':1, 'rock':1, 'band':1},
+            'MAYDAY@':        {'Taiwanese':1, 'rock':1, 'band':1},
+            'Sodagreen':      {'Taiwanese':1, 'indie':1, 'pop_rock':1, 'band':1},
+            'SEKAI_NO_OWARI': {'Japanese':1, 'indie':1, 'pop_rock':1, 'band':1},
+            'The_Beatles':    {'England':1, 'rock':1, 'pop':1 } }
 ice = pyICE()
-ice.LoadEdgeList('./network.edgelist')
+ice.LoadDict(network)
 ice.Init(dimension=4)
 ice.Train(sample_times=10, negative_samples=5, alpha=0.025, worker=1)
 ice.SaveWeights(model_name='ICE.rep')
 ```
+
+## Example Output (the Learned Representations)
+```txt
+五月天 0.47944 1.03708 -1.78878 -0.856039
+MAYDAY@ 0.48029 1.04692 -1.78591 -0.855289
+Sodagreen -0.849743 0.435535 -1.41524 1.75017
+SEKAI_NO_OWARI 1.23796 -1.43277 -1.12657 1.28416
+The_Beatles 2.21267 1.66775 0.42715 0.702507
+```
+

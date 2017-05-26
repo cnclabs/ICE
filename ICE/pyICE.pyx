@@ -37,13 +37,13 @@ cdef class pyICE:
         if self.c_ICE != NULL:
             del self.c_ICE
 
-    def Init(self, dimension=64):
+    def init(self, dimension=64):
         self.c_ICE.Init(dimension)
     
-    def LoadEdgeList(self, filename):
+    def load_edgelist(self, filename):
         self.c_ICE.LoadEdgeList(filename.encode('utf-8'))
 
-    def LoadDict(self, _graph):
+    def load_dict(self, _graph):
         
         cdef unordered_map[string, unordered_map[string, double]] graph
         for v1 in _graph:
@@ -52,10 +52,10 @@ cdef class pyICE:
 
         self.c_ICE.LoadDict(graph)
 
-    def SaveWeights(self, model_name='ICE.model'):
+    def save_weights(self, model_name='ICE.model'):
         self.c_ICE.SaveWeights(model_name.encode('utf-8'))
 
-    def Train(self, sample_times=10, negative_samples=5, alpha=0.025, worker=1):
-        self.c_ICE.Train(sample_times, negative_samples, alpha, worker)
+    def train(self, sample_times=10, negative_samples=5, alpha=0.025, workers=1):
+        self.c_ICE.Train(sample_times, negative_samples, alpha, workers)
 
 

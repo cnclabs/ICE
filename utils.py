@@ -60,7 +60,7 @@ def file2dict(path):
     return edge_dict
 
 if __name__ == '__main__':
-    lang = 'zh'
+    lang = 'en'
     words_path = './data/wordlist_{}.txt'.format(lang)
     word_list = []
 

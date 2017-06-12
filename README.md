@@ -20,21 +20,18 @@ make python
 
 ## Construct ICE graph
 ```
-$ python graph.py -i ./data/lyrics.csv -m GoogleNews-vectors-negative300.bin.gz -o edgelist -t 0.9 -d 300
+$ python graph.py -i ./data/lyrics_small.csv -w ./data/word-edges_en.csv -o network.edgelist
 ```
 Parameters:
 ```
   -i <string>, --input <string>
           Input File Name
-  -m <string>, --model <string>
-          Pretrained Word2Vec Model Path
+  -m <string>, --wordedges <string>
+          Word Edges File Name
   -o <string>, --output <string>
           Output File Name
-  -d <int>, --dim <int>     
-          word2vec dimension
-  -t <float>, --threshold <float>
-          annoy distance threshold to capture similar concept
 ```
+
 ## Example Input
 network.edgelist
 ```txt

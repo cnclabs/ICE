@@ -6,23 +6,21 @@ import csv
 from collections import defaultdict
 from annoy import AnnoyIndex
 import numpy as np
+import sys
+from utils import get_concept, file2dict
 
 if __name__ == '__main__':
     PARSER = argparse.ArgumentParser(description='Transform text data to edge list file.')
 
     PARSER.add_argument('-i', '--input', default=None, help='Input File Name')
-    PARSER.add_argument('-m', '--model', default=None, help='Pretrained Word2Vec Model Path')
     PARSER.add_argument('-o', '--output', default=None, help='Output File Name')
-    PARSER.add_argument('-d', '--dim', default=300, type=int, help='word2vec dimension')
-    PARSER.add_argument('-t', '--threshold', default=0.9, type=float, help='annoy distance threshold to capture similar concept')
+    PARSER.add_argument('-w', '--wordedges', default=None, help='Word Edges File Name')
 
     CONFIG = PARSER.parse_args()
 
     input_path = CONFIG.input
-    model_path = CONFIG.model
     output_path = CONFIG.output
-    dim = CONFIG.dim
-    thres = CONFIG.threshold
+    word_edge_path = CONFIG.wordedges
 
     item_count = 0
     vocabulary_set = set()
@@ -30,7 +28,8 @@ if __name__ == '__main__':
     tokens_list = []
     item_text_dict = {}
     text_text_dict = defaultdict(list)
-    print(input_path, model_path, output_path, dim, thres)
+    id2word = {}
+    print(input_path, output_path, word_edge_path)
 
     print('Construct item-text structure...')
     with open(input_path) as f:
@@ -43,32 +42,21 @@ if __name__ == '__main__':
             tokens_list.append(tokens)
             item_count += 1
 
-    print('Loading word2vec model...')
-    word2vec_model = KeyedVectors.load_word2vec_format(model_path, binary=True)
-
-    # print(song_text_dict)
-    # print(vocabulary_set)
-    id2word = {}
-    vocabulary_list = [x for x in vocabulary_set if x in word2vec_model]
     print('Construct text-text structure...')
-    annoy_indexer = AnnoyIndex(dim)
-    for i in range(len(vocabulary_list)):
-        id2word[i] = vocabulary_list[i]
-        vec = word2vec_model[vocabulary_list[i]]
-        annoy_indexer.add_item(i, vec)
+    with open(word_edge_path) as f:
+        for line in f:
+            line = line.split()
+            fromNode = line[0]
+            toNode = line[1]
+            text_text_dict[fromNode].append(toNode)
+            vocabulary_set.update([fromNode, toNode])
+    for word in vocabulary_set:
+        text_text_dict[word].append(word)
 
-    annoy_indexer.build(100)
+    vocabulary_list = list(vocabulary_set)
     for i in range(len(vocabulary_list)):
-        word = vocabulary_list[i]
-        t2t_result = annoy_indexer.get_nns_by_item(i, 20, include_distances=True)
-        word_table = t2t_result[0][1:]
-        dist_table = t2t_result[1][1:]
-        t2t_result = [vocabulary_list[y] for x,y in enumerate(word_table) if dist_table[x] < thres]
-        # print(t2t_result)
-        if len(t2t_result) > 0:
-            text_text_dict[word] = t2t_result 
+        id2word[i] = vocabulary_list[i] 
 
-    # print(text_text_dict)
     print('Build ICE Matrix...')
     M_et = np.zeros( (item_count, len(vocabulary_list)) )
     M_tt = np.zeros( (len(vocabulary_list), len(vocabulary_list)) )
@@ -96,9 +84,7 @@ if __name__ == '__main__':
         if len(word2word) == 0:
             continue
         for w in word2word:
-            if (word, w) not in w2w_hash and (w, word) not in w2w_hash:
-                edge_list.append((word, w))
-                w2w_hash.append((word, w))
+            edge_list.append((word, w))
 
     with open(output_path, 'w') as f:
         for edge in edge_list:

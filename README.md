@@ -26,7 +26,7 @@ Parameters:
 ```
   -i <string>, --input <string>
           Input File Name
-  -m <string>, --wordedges <string>
+  -w <string>, --wordedges <string>
           Word Edges File Name
   -o <string>, --output <string>
           Output File Name

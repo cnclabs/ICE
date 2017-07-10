@@ -20,7 +20,7 @@ make python
 
 ## Construct ICE graph
 ```
-$ python graph.py -i ./data/lyrics_small.csv -w ./data/word-edges_en.csv -o network.edgelist
+$ python graph.py -i ./data/lyrics_small.csv -w ./data/word-edges_en.txt -o network.edgelist
 ```
 Parameters:
 ```
@@ -31,7 +31,7 @@ Parameters:
   -o <string>, --output <string>
           Output File Name
 ```
-Sample files: See `data/lyrics_small.csv` and `data/word-edges_en.csv`
+Sample files: See `data/lyrics_small.csv` and `data/word-edges_en.txt`
 ## Example Input
 network.edgelist
 ```txt

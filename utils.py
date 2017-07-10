@@ -22,7 +22,7 @@ def get_concept(word_list, lang='en'):
             elif lang == 'zh':
                 concept_words.append(item['start']['label'])
                 concept_words.append(item['end']['label'])
-        concept_words = [x for x in concept_words if x != key]
+        concept_words = [x.replace(' ', '_') for x in concept_words if x != key]
         result[key] = list(set(concept_words))
 
     return result

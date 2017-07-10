@@ -31,7 +31,7 @@ Parameters:
   -o <string>, --output <string>
           Output File Name
 ```
-
+Sample files: See `data/lyrics_small.csv` and `data/word-edges_en.csv`
 ## Example Input
 network.edgelist
 ```txt

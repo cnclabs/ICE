@@ -24,8 +24,10 @@ if __name__ == '__main__':
 
     item_count = 0
     vocabulary_set = set()
-    song_list = []
-    tokens_list = []
+    # item_list = []
+    item_set = {}
+    # tokens_list = []
+    tokens_list = defaultdict(list)
     item_text_dict = {}
     text_text_dict = defaultdict(list)
     id2word = {}
@@ -33,14 +35,26 @@ if __name__ == '__main__':
 
     print('Construct item-text structure...')
     with open(input_path) as f:
-        reader = csv.reader(f)
-        for line in reader:
-            key = line[0]
-            song_list.append(key.replace('_','@').replace(' ','_'))
-            tokens = list(set(line[1].split(' ')))
-            vocabulary_set.update(tokens)
-            tokens_list.append(tokens)
-            item_count += 1
+        # reader = csv.reader(f)
+        # for line in reader:
+        #     key = line[0]
+        #     song_list.append(key.replace('_','@').replace(' ','_'))
+        #     tokens = list(set(line[1].split(' ')))
+        #     vocabulary_set.update(tokens)
+        #     tokens_list.append(tokens)
+        #     item_count += 1
+        for line in f:
+            line = line.split()
+            fromNode = line[0]
+            toNode = line[1]
+            if fromNode not in item_set:
+                item_set[fromNode] = item_count
+                item_count += 1
+            vocabulary_set.add(toNode)
+            tokens_list[fromNode].append(toNode)
+
+    tokens_list = {item_set[x]:y for x,y in tokens_list.items()}
+    item_set = {y:x for x,y in item_set.items()}
 
     print('Construct text-text structure...')
     with open(word_edge_path) as f:
@@ -52,6 +66,9 @@ if __name__ == '__main__':
             vocabulary_set.update([fromNode, toNode])
     for word in vocabulary_set:
         text_text_dict[word].append(word)
+
+    for word in text_text_dict.keys():
+        text_text_dict[word] = list(set(text_text_dict[word]))
 
     vocabulary_list = list(vocabulary_set)
     for i in range(len(vocabulary_list)):
@@ -75,7 +92,8 @@ if __name__ == '__main__':
         words_index = [x for x,y in enumerate(A[i]) if y > 0]
         words = [id2word[x] for x in words_index]
         for word in words:
-            edge_list.append((song_list[i], word))
+            # edge_list.append((item_list[i], word))
+            edge_list.append((item_set[i], word))
 
     w2w_hash = []
     for i in range(len(vocabulary_list)):

@@ -1,10 +1,7 @@
 from __future__ import print_function, division, unicode_literals
 import argparse
-import gensim
-from gensim.models.keyedvectors import KeyedVectors
 import csv
 from collections import defaultdict
-from annoy import AnnoyIndex
 import numpy as np
 import sys
 from utils import get_concept, file2dict

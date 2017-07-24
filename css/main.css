@@ -29,3 +29,29 @@ a {
     height: 28px;
     pointer-events: none;
 }
+
+@media only screen and (min-width: 101px) {
+    #scatter svg {
+        height: 300px;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    #scatter svg {
+        height: 500px;
+    }
+}
+
+@media only screen and (min-width: 993px) {
+    #scatter svg {
+        height: 50vw;
+    }
+    .container {
+        width: 80%;
+        margin: 0 8% 0 12%;
+    }
+}
+
+path {
+  cursor: pointer;
+}

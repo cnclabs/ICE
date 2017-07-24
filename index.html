@@ -2,214 +2,62 @@
 <html>
 
 <head>
-  <title>ICE Demo</title>
-  <meta charset="UTF-8" />
-  <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
-  <link rel="stylesheet" type="text/css" href="css/main.css">
-  <script src="https://use.fontawesome.com/02ff18df1e.js"></script>
-  <script src="https://d3js.org/d3.v3.min.js"></script>
+    <title>ICE Demo</title>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/nv.d3.min.css">
+    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
 </head>
 
 <body>
-  <header>
-    <a class="hide-on-med-and-down" href="https://github.com/CLIPLab/ICE" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
-    <div class="container">
-      <div class="valign-wrapper" style="height: 140px; width: 100%;">
-        <h2 class="flow-text">ICE: Item Concept Embedding</h2>
-      </div>
-    </div>
-  </header>
-  <main style="padding-top: 10px;">
-    <div class="container">
-      <div class="row">
-        <div class="col s12 l5">
-          <h5>About</h5>
-          <p style="text-align: justify;">
-            ICE is an item concept embedding framework to model item concepts via textual information. We propose a generalized network to learn a network embedding involving heterogeneous nodes and a mixture of both homogeneous and heterogeneous relations.
-          </p>
-          <div class="row">
-            <div class="input-field col s12">
-              <input placeholder="query" id="first_name" type="text" class="validate">
-              <label for="first_name">Item</label>
-              <a class="waves-effect waves-light btn green">Search</a>
+    <header>
+        <a class="hide-on-med-and-down" href="https://github.com/CLIPLab/ICE" target="_blank"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+        <div class="container">
+            <div class="valign-wrapper" style="height: 140px; width: 100%;">
+                <h2 class="flow-text">ICE: Item Concept Embedding</h2>
             </div>
-          </div>
         </div>
-        <div class="col s12 l1">
+    </header>
+    <main style="padding-top: 10px;">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <h5>About</h5>
+                    <p style="text-align: justify;">
+                        ICE is an item concept embedding framework to model item concepts via textual information. We propose a generalized network to learn a network embedding involving heterogeneous nodes and a mixture of both homogeneous and heterogeneous relations.
+                    </p>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input placeholder="query" id="first_name" type="text" class="validate">
+                            <label for="first_name">Item</label>
+                            <a class="waves-effect waves-light btn green">Search</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col s12 l1"> -->
+                </div>
+                <div class="col s12" id="scatter">
+                    <svg></svg>
+                </div>
+            </div>
         </div>
-        <div class="col s12 l6" id="scatter">
+    </main>
+    <footer class="page-footer" style="background-color: #757575; padding-top:0px;">
+        <div class="footer-copyright" style="font-size: 16px;">
+            <div class="row container" style="margin: 15px auto;">
+                <div class="center-align">
+                    © Copyright CLIP Lab 2017, All Rights Reserved. Maintained by
+                    <a href="https://github.com/LonSilent" target="_blank" style="color:rgba(255,255,255,0.8); font-weight: 700;">LonSilent</a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </main>
-  <footer class="page-footer" style="background-color: #757575; padding-top:0px;">
-    <div class="footer-copyright" style="font-size: 16px;">
-      <div class="row container" style="margin: 15px auto;">
-        <div class="center-align">
-          © Copyright CLIP Lab 2017, All Rights Reserved. Maintained by
-          <a href="https://github.com/LonSilent" target="_blank" style="color:rgba(255,255,255,0.8); font-weight: 700;">LonSilent</a>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script src="js/materialize.min.js" type="text/javascript" charset="utf-8" async defer></script>
-  <script>
-  var screenWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width;
-  var margin = {
-    top: 20,
-    right: 20,
-    bottom: 30,
-    left: 40
-  };
-  console.log(screenWidth);
-  if (screenWidth < 600) {
-    var width = screenWidth - 60 - margin.left - margin.right,
-      height = screenWidth - 60 - margin.top - margin.bottom;
-
-  } else if (screenWidth < 996) {
-    var width = screenWidth - 100 - margin.left - margin.right,
-      height = screenWidth * 0.6 - margin.top - margin.bottom;
-  } else {
-    var width = screenWidth * 0.4 - margin.left - margin.right,
-      height = screenWidth * 0.3 - margin.top - margin.bottom;
-  }
-  /* 
-   * value accessor - returns the value to encode for a given data object.
-   * scale - maps value to a visual display encoding, such as a pixel position.
-   * map function - maps from data value to display value
-   * axis - sets up axis
-   */
-
-  // setup x 
-  var xValue = function(d) {
-      return d.Calories;
-    }, // data -> value
-    xScale = d3.scale.linear().range([0, width]), // value -> display
-    xMap = function(d) {
-      return xScale(xValue(d));
-    }, // data -> display
-    xAxis = d3.svg.axis().scale(xScale).orient("bottom");
-
-  // setup y
-  var yValue = function(d) {
-      return d["Protein (g)"];
-    }, // data -> value
-    yScale = d3.scale.linear().range([height, 0]), // value -> display
-    yMap = function(d) {
-      return yScale(yValue(d));
-    }, // data -> display
-    yAxis = d3.svg.axis().scale(yScale).orient("left");
-
-  // setup fill color
-  var cValue = function(d) {
-      return d.Manufacturer;
-    },
-    color = d3.scale.category10();
-
-  // add the graph canvas to the body of the webpage
-
-  var svg = d3.select("#scatter").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-  // add the tooltip area to the webpage
-  var tooltip = d3.select("#scatter").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-
-  // load data
-  d3.csv("cereal.csv", function(error, data) {
-
-    // change string (from CSV) into number format
-    data.forEach(function(d) {
-      d.Calories = +d.Calories;
-      d["Protein (g)"] = +d["Protein (g)"];
-      //    console.log(d);
-    });
-
-    // don't want dots overlapping axis, so add in buffer to data domain
-    xScale.domain([d3.min(data, xValue) - 1, d3.max(data, xValue) + 1]);
-    yScale.domain([d3.min(data, yValue) - 1, d3.max(data, yValue) + 1]);
-
-    // x-axis
-    svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
-      .call(xAxis)
-      .append("text")
-      .attr("class", "label")
-      .attr("x", width)
-      .attr("y", -6)
-      .style("text-anchor", "end")
-      .text("Calories");
-
-    // y-axis
-    svg.append("g")
-      .attr("class", "y axis")
-      .call(yAxis)
-      .append("text")
-      .attr("class", "label")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Protein (g)");
-
-    // draw dots
-    svg.selectAll(".dot")
-      .data(data)
-      .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 3.5)
-      .attr("cx", xMap)
-      .attr("cy", yMap)
-      .style("fill", function(d) {
-        return color(cValue(d));
-      })
-      .on("mouseover", function(d) {
-        tooltip.transition()
-          .duration(200)
-          .style("opacity", .9);
-        tooltip.html(d["Cereal Name"] + "<br/> (" + xValue(d) + ", " + yValue(d) + ")")
-          .style("left", (d3.event.pageX + 5) + "px")
-          .style("top", (d3.event.pageY - 28) + "px");
-      })
-      .on("mouseout", function(d) {
-        tooltip.transition()
-          .duration(500)
-          .style("opacity", 0);
-      });
-
-    // draw legend
-    var legend = svg.selectAll(".legend")
-      .data(color.domain())
-      .enter().append("g")
-      .attr("class", "legend")
-      .attr("transform", function(d, i) {
-        return "translate(0," + i * 20 + ")";
-      });
-
-    // draw legend colored rectangles
-    legend.append("rect")
-      .attr("x", width - 18)
-      .attr("width", 18)
-      .attr("height", 18)
-      .style("fill", color);
-
-    // draw legend text
-    legend.append("text")
-      .attr("x", width - 24)
-      .attr("y", 9)
-      .attr("dy", ".35em")
-      .style("text-anchor", "end")
-      .text(function(d) {
-        return d;
-      })
-  });
-  </script>
+    </footer>
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="js/materialize.min.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="js/nv.d3.min.js"></script>
+    <script src="js/render.js"></script>
 </body>
 
 </html>

@@ -7,6 +7,13 @@ Specifically, there are two stages in the ICE framework. In the graph constructi
 
 Since entities are defined in terms of concepts, adding expanded concepts into the network allows the embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
+### Citation
+
+### How ICE works
+
+### Input
+
+### Output
 
 ## Developement Environment:
 - g++ > 4.9

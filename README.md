@@ -5,7 +5,7 @@ The ICE toolkit is designed to embed concepts into items such that the resulted 
 
 Specifically, there are two stages in the ICE framework. In the graph construction stage, ICE incorporates items and their representative concepts (words extracted from the textual information) using a heterogeneous network. Then, in the embedding learning stage, ICE learns the embeddings for both items and concepts in terms of the concept words, which are shared between the heterogeneous entities, i.e. items and concepts.
 
-Since items are defined in terms of concepts, adding expanded concepts into the network allows the embeddings to be used to retrieve conceptually more diverse and yet relevant results.
+Since entities are defined in terms of concepts, adding expanded concepts into the network allows the embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
 
 ## Developement Environment:

@@ -1,7 +1,7 @@
 # ICE: Item Concept Embedding via Textual Information
 
 ## About
-The ICE toolkit is an implementation of the model described in ICE: Item Concept Embedding via Textual Information (SIGIR 2017). 
+The ICE toolkit implements the model described in ICE: Item Concept Embedding via Textual Information (SIGIR 2017). 
 
 ICE is designed to embed concepts into items such that items can be compared in terms of their overall conceptual similarity regardless of entity types. For example, a song can be used to retrieve conceptually similar songs (homogeneous) as well as concepts or movies (heterogeneous). 
 
@@ -10,7 +10,7 @@ Specifically, there are two stage in the ICE framework. In the graph constructio
 Since items are defined in terms of concepts, adding expanded concepts into the network allows the embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
 
-Developed Environment:
+## Developement Environment:
 - g++ > 4.9
 - python3
 - cython

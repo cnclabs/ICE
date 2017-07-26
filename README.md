@@ -1,4 +1,14 @@
-# ICE: Item Concept Embedding
+# ICE: Item Concept Embedding via Textual Information
+
+## About
+The ICE toolkit is an implementation of the model described in ICE: Item Concept Embedding via Textual Information (SIGIR 2017). 
+
+ICE is designed to embed concepts into items such that items can be compared in terms of their overall conceptual similarity regardless of entity types. For example, a song can be used to retrieve conceptually similar songs (homogeneous) as well as concepts or movies (heterogeneous). 
+
+Specifically, there are two stage in the ICE framework. In the graph construction stage, ICE incorporates items and their representative concepts (words extracted from the textual information) using a heterogeneous network. Then, in the embedding learning stage, ICE learns the embeddings for items and concepts using concepts as the context shared between heterogeneous entities.
+
+Since items are defined in terms of concepts, adding expanded concepts into the network allows the embeddings to be used to retrieve conceptually more diverse and yet relevant results.
+
 
 Developed Environment:
 - g++ > 4.9

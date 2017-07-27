@@ -9,12 +9,6 @@ Since entities are defined in terms of concepts, adding expanded concepts into t
 
 ### Citation
 
-### How ICE works
-
-### Input
-
-### Output
-
 ## Developement Environment:
 - g++ > 4.9
 - python3

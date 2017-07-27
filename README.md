@@ -5,7 +5,7 @@ The ICE toolkit is designed to embed concepts into items such that the resulted 
 
 Specifically, ICE first incorporates items and their representative concepts (words extracted from the item's textual information) using a heterogeneous network then learns the embeddings for both items and concepts in terms of the shared concept words.
 
-Since entities are defined in terms of concepts, adding expanded concepts into the network allows the embeddings to be used to retrieve conceptually more diverse and yet relevant results.
+Since items are defined in terms of concepts, adding expanded concepts into the network allows the embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
 ### Citation
 

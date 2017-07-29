@@ -1,14 +1,25 @@
 # ICE: Item Concept Embedding 
 
 ## About
-The ICE toolkit is designed to embed concepts into items such that the resulted item embeddings can be compared in terms of overall conceptual similarity regardless of item types. For example, a song can be used to retrieve conceptually similar songs (homogeneous) as well as conceptually similar concepts or movies (heterogeneous). 
+The ICE toolkit is designed to embed concepts into items such that the resulted item embeddings can be compared in terms of overall conceptual similarity regardless of item types. For example, a song can be used to retrieve conceptually similar songs (homogeneous) as well as conceptually similar concepts (heterogeneous). 
 
 Specifically, ICE incorporates items and their representative concepts (words extracted from the item's textual information) using a heterogeneous network and then learns the embeddings for both items and concepts in terms of the shared concept words.
-
 Since items are defined in terms of concepts, adding expanded concepts into the network allows the learned embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
 ### Citation
 
+@inproceedings{Odijk:2015:DQM:2766462.2767715,
+ author={Wang Chuan-Ju and Wang, Ting-Hsiang and Yang, Hsiu-Wei and Chang, Bo-Sin and Tsai Ming-Feng},
+ title = {ICE: Item Concept Embedding},
+ booktitle = {Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+ series = {SIGIR '17},
+ year = {2015},
+ location = {Shinjuku, Tokyo, Japan},
+ pages = {33--42},
+ numpages = {10},
+ url = {hp://dx.doi.org/10.1145/3077136.3080807},
+ publisher = {ACM}
+} 
 ## Developement Environment:
 - g++ > 4.9
 - python3

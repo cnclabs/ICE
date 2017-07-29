@@ -69,7 +69,7 @@ if __name__ == '__main__':
 
     vocabulary_list = list(vocabulary_set)
     for i in range(len(vocabulary_list)):
-        id2word[i] = vocabulary_list[i] 
+        id2word[i] = vocabulary_list[i]
 
     print('Build ICE Matrix...')
     M_et = np.zeros( (item_count, len(vocabulary_list)) )

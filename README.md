@@ -9,17 +9,22 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 ### Citation
 
 ```
-@inproceedings{Wang:2017:DQM:3077136.3080807,
- author={Wang Chuan-Ju and Wang, Ting-Hsiang and Yang, Hsiu-Wei and Chang, Bo-Sin and Tsai Ming-Feng},
- title = {ICE: Item Concept Embedding},
+@inproceedings{Wang:2017:IIC:3077136.3080807,
+ author = {Wang, Chuan-Ju and Wang, Ting-Hsiang and Yang, Hsiu-Wei and Chang, Bo-Sin and Tsai, Ming-Feng},
+ title = {ICE: Item Concept Embedding via Textual Information},
  booktitle = {Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval},
  series = {SIGIR '17},
- year = {2015},
+ year = {2017},
+ isbn = {978-1-4503-5022-8},
  location = {Shinjuku, Tokyo, Japan},
- pages = {33--42},
+ pages = {85--94},
  numpages = {10},
- url = {hp://dx.doi.org/10.1145/3077136.3080807},
- publisher = {ACM}
+ url = {http://doi.acm.org/10.1145/3077136.3080807},
+ doi = {10.1145/3077136.3080807},
+ acmid = {3080807},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {concept embedding, conceptual retrieval, information network, textual information},
 } 
 ```
 

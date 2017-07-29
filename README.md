@@ -8,7 +8,8 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 
 ### Citation
 
-@inproceedings{Odijk:2015:DQM:2766462.2767715,
+```
+@inproceedings{Wang:2017:DQM:3077136.3080807,
  author={Wang Chuan-Ju and Wang, Ting-Hsiang and Yang, Hsiu-Wei and Chang, Bo-Sin and Tsai Ming-Feng},
  title = {ICE: Item Concept Embedding},
  booktitle = {Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval},
@@ -20,6 +21,8 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
  url = {hp://dx.doi.org/10.1145/3077136.3080807},
  publisher = {ACM}
 } 
+```
+
 ## Developement Environment:
 - g++ > 4.9
 - python3

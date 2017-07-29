@@ -5,9 +5,11 @@
     <title>ICE Demo</title>
     <meta charset="UTF-8" />
     <link rel="stylesheet" type="text/css" href="css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/nv.d3.min.css">
-    <link rel="shortcut icon" type="image/png" href="./favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="./favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
@@ -39,11 +41,22 @@
                         embeddings of the IMDB dataset via the plots of the
                         movies.
                     </p>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="input-field col s12">
                             <input placeholder="query" id="first_name" type="text" class="validate">
                             <label for="first_name">Item</label>
                             <a class="waves-effect waves-light btn green">Search</a>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col s12">
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="material-icons prefix">search</i>
+                                    <input type="text" id="autocomplete-input" class="autocomplete">
+                                    <label for="autocomplete-input">Search...</label>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -65,11 +78,13 @@
             </div>
         </div>
     </footer>
-    <script src="js/jquery-3.2.1.min.js" type="text/javascript" charset="utf-8" async defer></script>
-    <script src="js/materialize.min.js" type="text/javascript" charset="utf-8" async defer></script>
+    <script src="js/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="js/materialize.min.js" type="text/javascript"></script>
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="js/nv.d3.min.js"></script>
+    <script src="js/autocomplete.js"></script>
     <script src="js/render.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 
 </html>

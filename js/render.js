@@ -1,4 +1,4 @@
-d3.json("./data.json", function(error, data) {
+d3.json("./demo_with_single_genre.json", function(error, data) {
     nv.addGraph(function() {
         var chart = nv.models.scatterChart()
             .showDistX(true)

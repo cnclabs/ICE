@@ -159,8 +159,7 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 ```
 
 ## Experimental Results
-- OMDB word-to-movie retrieval task 
--- Parameters: dimension=256, sample_times=200, negative_samples=2
+- OMDB word-to-movie retrieval task (Parameters: dimension=256, sample_times=200, negative_samples=2)
 
 |    Genre   | Horror | Thriller | Western | Action | Short | Sci-Fi | Average |
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|

@@ -28,7 +28,7 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 } 
 ```
 
-## Developement Environment:
+## Developement Environment
 - g++ > 4.9
 - python3
 - cython
@@ -149,7 +149,7 @@ ice.train(sample_times=11, negative_samples=5, alpha=0.025, workers=1)
 ice.save_weights(model_name='ICE.rep')
 ```
 
-## Example Output (the Learned Representations)
+## Example Output (Embeddings)
 ```txt
 五月天 0.47944 1.03708 -1.78878 -0.856039
 MAYDAY@ 0.48029 1.04692 -1.78591 -0.855289
@@ -159,16 +159,16 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 ```
 
 ## Experimental Results
-- IMDB word-to-movie retrieval task (Parameters: dimension=256, sample_times=200, negative_samples=2)
+- OMDB word-to-movie retrieval task (Parameters: dimension=256, sample_times=200, negative_samples=2)
 
 |    Genre   | Horror | Thriller | Western | Action | Short | Sci-Fi | Average |
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|
-| Precision@50 |  0.329 |   0.211  |  0.338  |  0.446 | 0.087 |  0.389 |  0.300  |
+| Precision  |  0.329 |   0.211  |  0.338  |  0.446 | 0.087 |  0.389 |  0.300  |
 
 - KKBOX word-to-song retrieval task (Parameters: dimension=300, sample_times=10000, negative_samples=5)
 
 |Query|失落 (lost)|心痛 (heartache)|想念 (pining)|深愛 (affectionate)|難過 (sad)|回家 (home)|房間 (room)|海邊 (seaside)|火車 (train)|花園 (garden)|夕陽 (dusk)|日出 (sunrise)|日落 (sunset)|月亮 (moon)|黑夜 (night)|Average|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Keyword precision@100|0.550|0.266|0.573|0.523|0.544|0.959|0.520|0.360|0.484|0.451|0.376|0.400|0.610|0.897|0.506|0.535|
-|Exp. word precision@100|0.063|0.496|0.039|0.263|0.033|0.086|0.049|0.110|0.026|0.000|0.111|0.711|0.506|0.361|0.017|0.191|
+|Expanded word precision@100|0.063|0.496|0.039|0.263|0.033|0.086|0.049|0.110|0.026|0.000|0.111|0.711|0.506|0.361|0.017|0.191|
 

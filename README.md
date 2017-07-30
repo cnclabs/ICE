@@ -165,7 +165,7 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|
 | Precision  |  0.329 |   0.211  |  0.338  |  0.446 | 0.087 |  0.389 |  0.300  |
 
-- KKBOX word-to-song retrieval task:<br /> 
+- KKBOX word-to-song retrieval task:
     - ICE API parameters: dimensions=300, sample_times=10000, negative_samples=5
     - Network setup: |W|=10, exp=3
 

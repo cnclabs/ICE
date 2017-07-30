@@ -1,9 +1,15 @@
+var all_data;
+
 d3.json("./single_genre.json", function(error, data) {
+    // console.log(data);
+    all_data = data;
+    render(all_data);
+});
+
+function render(data) {
     nv.addGraph(function() {
         var chart = nv.models.scatterChart()
-            .showDistX(true)
-            .showDistY(true)
-            .color(d3.scale.category10().range());
+            // .color(d3.scale.category10().range());
 
         chart.tooltip.contentGenerator(
             function(d) {
@@ -20,10 +26,7 @@ d3.json("./single_genre.json", function(error, data) {
         chart.xAxis.tickFormat(d3.format('.02f'));
         chart.yAxis.tickFormat(d3.format('.02f'));
 
-        // chart.scatter.onlyCircles(false);
-
         chart.scatter.dispatch.on("elementClick", function(d) {
-            // console.log( d.point.word.split("_")[0] );
             if (d.point.cate === "item") {
                 window.open("http://www.imdb.com/title/" + d.point.imdb_id + "/", "_blank");
             } else {
@@ -40,4 +43,36 @@ d3.json("./single_genre.json", function(error, data) {
 
         return chart;
     });
-});
+}
+
+function search(val) {
+    var data = JSON.parse(JSON.stringify(all_data));
+    data.forEach(function(cate) {
+        cate.values.forEach(function(point, index) {
+            if ($.inArray(point.title, neighbors[val]) === -1) {
+                cate.values[index] = '';
+            }
+            if (point.title === val) {
+                point.size = 1.0;
+            }
+        });
+    });
+    data.forEach(function(cate) {
+        cate.values = cate.values.filter((x) => { return x !== '' })
+    });
+    render(data);
+}
+
+function searchEnter(e) {
+    if (e.keyCode == 13) {
+        var val = document.getElementById("autocomplete-input");
+        if ($.inArray(val.value, Object.keys(neighbors))) {
+            search(val.value);
+        }
+        return false;
+    }
+}
+
+function reset() {
+    render(all_data);
+}

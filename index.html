@@ -41,26 +41,19 @@
                         embeddings of the IMDB dataset via the plots of the
                         movies.
                     </p>
-                    <!-- <div class="row">
-                        <div class="input-field col s12">
-                            <input placeholder="query" id="first_name" type="text" class="validate">
-                            <label for="first_name">Item</label>
-                            <a class="waves-effect waves-light btn green">Search</a>
-                        </div>
-                    </div> -->
                     <div class="row">
                         <div class="col s12">
                             <div class="row">
                                 <div class="input-field col s12">
                                     <i class="material-icons prefix">search</i>
-                                    <input type="text" id="autocomplete-input" class="autocomplete">
+                                    <input type="text" id="autocomplete-input" class="autocomplete" onkeypress="return searchEnter(event)">
                                     <label for="autocomplete-input">Search...</label>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="col s12 l1"> -->
+                <a class="waves-effect waves-light btn" onclick="reset()">Reset Chart</a>
                 </div>
                 <div class="col s12" id="scatter">
                     <svg></svg>
@@ -83,6 +76,7 @@
     <script src="https://d3js.org/d3.v3.min.js"></script>
     <script src="js/nv.d3.min.js"></script>
     <script src="js/autocomplete.js"></script>
+    <script src="js/neighbors.js"></script>
     <script src="js/render.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>

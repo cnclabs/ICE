@@ -159,11 +159,14 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 ```
 
 ## Experimental Results
-- OMDB word-to-movie retrieval task (Parameters: dimensions=256, sample_times=200, negative_samples=2)
+- OMDB word-to-movie retrieval task:
+    - Training parameters: dimensions=256, sample_times=200, negative_samples=2
+    - Network setup: |W|=20, exp-5
 
 |    Genre   | Horror | Thriller | Western | Action | Short | Sci-Fi | Average |
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|
-| Precision  |  0.329 |   0.211  |  0.338  |  0.446 | 0.087 |  0.389 |  0.300  |
+| Precision@50  |  0.329 |   0.211  |  0.338  |  0.446 | 0.087 |  0.389 |  0.300  |
+| Precision@100  |  0.320 |   0.214  |  0.292  |  0.425 | 0.074 |  0.380 |  0.284  |
 
 - KKBOX word-to-song retrieval task:
     - Training parameters: dimensions=300, sample_times=10000, negative_samples=5

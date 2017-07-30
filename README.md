@@ -165,9 +165,7 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|
 | Precision  |  0.329 |   0.211  |  0.338  |  0.446 | 0.087 |  0.389 |  0.300  |
 
-* KKBOX word-to-song retrieval task:
- * Training parameters: dimension=300, sample_times=10000, negative_samples=5
- * Network setup: |W|=10, exp=3
+- KKBOX word-to-song retrieval task (Parameters: dimension=300, sample_times=10000, negative_samples=5)
 
 |Query|失落 (lost)|心痛 (heartache)|想念 (pining)|深愛 (affectionate)|難過 (sad)|回家 (home)|房間 (room)|海邊 (seaside)|火車 (train)|花園 (garden)|夕陽 (dusk)|日出 (sunrise)|日落 (sunset)|月亮 (moon)|黑夜 (night)|Average|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

@@ -28,7 +28,7 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 } 
 ```
 
-## Developement Environment:
+## Developement Environment
 - g++ > 4.9
 - python3
 - cython

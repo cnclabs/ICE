@@ -144,8 +144,8 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 ## 3. Experimental Results
 Here, we report the average performance of 10 results for two tasks. For details and other experiments, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 - OMDB word-to-movie retrieval task:
-    - Network setup: |W|=20, exp-5
-    - Training parameters: dimensions=256, sample_times=200, negative_samples=2
+    - Graph construction: |W|=20, exp-5
+    - Embedding learning: dim=256, sample=200, neg=2
 
 |    Genre   | Horror | Thriller | Western | Action | Short | Sci-Fi | Average |
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|
@@ -154,9 +154,8 @@ Here, we report the average performance of 10 results for two tasks. For details
 
 
 - KKBOX word-to-song retrieval task:
-    - Network setup: |W|=10, exp-3
-    - Training parameters: dimensions=300, sample_times=10000, negative_samples=5
-    - We report the average of 10 results.
+    - Graph construction: |W|=10, exp-3
+    - Embedding learning: dim=300, sample=10000, neg=5
 
 |Query|失落 (lost)|心痛 (heartache)|想念 (pining)|深愛 (affectionate)|難過 (sad)|回家 (home)|房間 (room)|海邊 (seaside)|火車 (train)|花園 (garden)|夕陽 (dusk)|日出 (sunrise)|日落 (sunset)|月亮 (moon)|黑夜 (night)|Average|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|

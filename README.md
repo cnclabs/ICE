@@ -38,7 +38,7 @@ Parameters:
           Output File Name
 ```
 Sample files: See `data/lyrics_small.csv` and `data/word-edges_en.txt`
-## Example Input
+### Example Input
 network.edgelist
 ```txt
 五月天 Taiwanese 1

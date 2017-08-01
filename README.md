@@ -43,7 +43,7 @@ $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice
   -ice <string>, --ice_network <string>
           Output ICE Network
 ```
-Sample files: See `data/song_et.edge` and `data/song_tt.edge`
+- For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
 #### Example Input
 network.edgelist
 ```txt

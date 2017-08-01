@@ -24,7 +24,7 @@ python3 API compilation
 make python
 ```
 
-## ICE graph Construction
+## ICE Graph Construction
 ```
 $ python graph.py -i ./data/lyrics_small.csv -w ./data/word-edges_en.txt -o network.edgelist
 ```

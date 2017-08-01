@@ -144,24 +144,23 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 - OMDB word-to-movie retrieval task:
     - Network setup: |W|=20, exp-5
     - Training parameters: dimensions=256, sample_times=200, negative_samples=2
-    - Reported numbers are the average of 10 results.
 
 |    Genre   | Horror | Thriller | Western | Action | Short | Sci-Fi | Average |
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|
 | Precision@50  |  0.329 |   0.211  |  0.338  |  0.446 | 0.087 |  0.389 |  0.300  |
 | Precision@100  |  0.320 |   0.214  |  0.292  |  0.425 | 0.074 |  0.380 |  0.284  |
+    - We report the average of 10 results.
 
 - KKBOX word-to-song retrieval task:
     - Network setup: |W|=10, exp-3
     - Training parameters: dimensions=300, sample_times=10000, negative_samples=5
-    - Reported numbers are the average of 10 results.
-
 
 |Query|失落 (lost)|心痛 (heartache)|想念 (pining)|深愛 (affectionate)|難過 (sad)|回家 (home)|房間 (room)|海邊 (seaside)|火車 (train)|花園 (garden)|夕陽 (dusk)|日出 (sunrise)|日落 (sunset)|月亮 (moon)|黑夜 (night)|Average|
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Keyword precision@100|0.550|0.266|0.573|0.523|0.544|0.959|0.520|0.360|0.484|0.451|0.376|0.400|0.610|0.897|0.506|0.535|
 |Concept-similar word Precision@100|0.063|0.496|0.039|0.263|0.033|0.086|0.049|0.110|0.026|0.000|0.111|0.711|0.506|0.361|0.017|0.191|
-
+    - We report the average of 10 results.
+    
 ## 4. Citation
 
 ```

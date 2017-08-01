@@ -6,28 +6,6 @@ The ICE toolkit is designed to embed concepts into items such that the resulted 
 Specifically, ICE incorporates items and their representative concepts (words extracted from the item's textual information) using a heterogeneous network and then learns the embeddings for both items and concepts in terms of the shared concept words.
 Since items are defined in terms of concepts, adding expanded concepts into the network allows the learned embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
-### Citation
-
-```
-@inproceedings{Wang:2017:IIC:3077136.3080807,
- author = {Wang, Chuan-Ju and Wang, Ting-Hsiang and Yang, Hsiu-Wei and Chang, Bo-Sin and Tsai, Ming-Feng},
- title = {ICE: Item Concept Embedding via Textual Information},
- booktitle = {Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval},
- series = {SIGIR '17},
- year = {2017},
- isbn = {978-1-4503-5022-8},
- location = {Shinjuku, Tokyo, Japan},
- pages = {85--94},
- numpages = {10},
- url = {http://doi.acm.org/10.1145/3077136.3080807},
- doi = {10.1145/3077136.3080807},
- acmid = {3080807},
- publisher = {ACM},
- address = {New York, NY, USA},
- keywords = {concept embedding, conceptual retrieval, information network, textual information},
-} 
-```
-
 ## Developement Environment
 - g++ > 4.9
 - python3
@@ -176,4 +154,26 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Keyword precision@100|0.550|0.266|0.573|0.523|0.544|0.959|0.520|0.360|0.484|0.451|0.376|0.400|0.610|0.897|0.506|0.535|
 |Concept-similar word precision@100|0.063|0.496|0.039|0.263|0.033|0.086|0.049|0.110|0.026|0.000|0.111|0.711|0.506|0.361|0.017|0.191|
+
+### Citation
+
+```
+@inproceedings{Wang:2017:IIC:3077136.3080807,
+ author = {Wang, Chuan-Ju and Wang, Ting-Hsiang and Yang, Hsiu-Wei and Chang, Bo-Sin and Tsai, Ming-Feng},
+ title = {ICE: Item Concept Embedding via Textual Information},
+ booktitle = {Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+ series = {SIGIR '17},
+ year = {2017},
+ isbn = {978-1-4503-5022-8},
+ location = {Shinjuku, Tokyo, Japan},
+ pages = {85--94},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/3077136.3080807},
+ doi = {10.1145/3077136.3080807},
+ acmid = {3080807},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {concept embedding, conceptual retrieval, information network, textual information},
+} 
+```
 

@@ -1,4 +1,4 @@
-# ICE: Item Concept Embedding 
+# ICE: Item Concept Embedding via Textual Information
 
 ## About
 The ICE toolkit is designed to embed concepts into items such that the resulted item embeddings can be compared in terms of overall conceptual similarity regardless of item types ([ICE: Item Concept Embedding via Textual Information](http://dl.acm.org/citation.cfm?doid=3077136.3080807), SIGIR 2017). For example, a song can be used to retrieve conceptually similar songs (homogeneous) as well as conceptually similar concepts (heterogeneous). 
@@ -38,7 +38,7 @@ Parameters:
           Output File Name
 ```
 Sample files: See `data/lyrics_small.csv` and `data/word-edges_en.txt`
-### Example Input
+#### Example Input
 network.edgelist
 ```txt
 五月天 Taiwanese 1

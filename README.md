@@ -5,7 +5,7 @@ The ICE toolkit is designed to embed concepts into items such that the resulted 
 Specifically, ICE incorporates items and their representative concepts (words extracted from the item's textual information) using a heterogeneous network and then learns the embeddings for both items and concepts in terms of the shared concept words.
 Since items are defined in terms of concepts, adding expanded concepts into the network allows the learned embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
-#### 1.1. System Requirements
+### 1.1. System Requirements
 - g++ > 4.9
 - python3
 - cython
@@ -27,7 +27,8 @@ python3 API compilation:
 $ make python
 ```
 
-## ICE Graph Construction
+## 2. API Usage
+## 2.1. Graph Construction
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
@@ -63,7 +64,7 @@ The_Beatles rock 1
 The_Beatles pop 1
 ```
 
-## Command Line Interface
+## 2.2. Embedding Learning
 
 Parameters:
 ```

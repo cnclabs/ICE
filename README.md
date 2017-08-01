@@ -28,7 +28,7 @@ $ make python
 ```
 
 ## 2. API Usage
-## 2.1. Graph Construction
+### 2.1. Graph Construction
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
@@ -64,7 +64,7 @@ The_Beatles rock 1
 The_Beatles pop 1
 ```
 
-## 2.2. Embedding Learning
+### 2.2. Embedding Learning
 
 Parameters:
 ```
@@ -140,7 +140,7 @@ SEKAI_NO_OWARI 1.23796 -1.43277 -1.12657 1.28416
 The_Beatles 2.21267 1.66775 0.42715 0.702507
 ```
 
-## Experimental Results
+## 3. Experimental Results
 - OMDB word-to-movie retrieval task:
     - Network setup: |W|=20, exp-5
     - Training parameters: dimensions=256, sample_times=200, negative_samples=2
@@ -162,7 +162,7 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 |Keyword precision@100|0.550|0.266|0.573|0.523|0.544|0.959|0.520|0.360|0.484|0.451|0.376|0.400|0.610|0.897|0.506|0.535|
 |Concept-similar word Precision@100|0.063|0.496|0.039|0.263|0.033|0.086|0.049|0.110|0.026|0.000|0.111|0.711|0.506|0.361|0.017|0.191|
 
-## Citation
+## 4. Citation
 
 ```
 @inproceedings{Wang:2017:IIC:3077136.3080807,

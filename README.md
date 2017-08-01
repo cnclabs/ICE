@@ -13,12 +13,11 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 Download:
 ```
 $ git clone https://github.com/CLIPLab/ICE
+$ cd ./ICE/ICE
 ```
 
 c++ compilation:
 ```
-$ git clone https://github.com/CLIPLab/ICE
-$ cd ./ICE/ICE
 $ make cli
 $ ./cli
 ```

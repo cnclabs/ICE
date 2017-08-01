@@ -29,10 +29,11 @@ $ make python
 
 ## 2. API Usage
 ### 2.1. ICE Graph Construction
+- Run:
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
-Parameters:
+- Parameters:
 ```
   -et <string>, --et_network <string>
           Input Entity-text Network
@@ -65,10 +66,11 @@ The_Beatles pop 1
 ```
 
 ### 2.2. ICE Embedding Learning
+- Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
 ```
-Parameters:
+- Parameters:
 ```
 Options:
         -train <string>

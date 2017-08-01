@@ -28,7 +28,8 @@ $ make python
 ```
 
 ## 2. API Usage
-### 2.1. ICE Graph Construction
+There are two stages in the ICE framework: graph construction and embedding learning. In the first stage, the API combines an entity-text and a text-text network to form an ICE network. In the second stage, the API learns the embeddings of both items an concepts based on the ICE network.
+### 2.1 Graph Construction
 - Run:
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
@@ -65,7 +66,7 @@ The_Beatles rock 1
 The_Beatles pop 1
 ```
 
-### 2.2. ICE Embedding Learning
+### 2.2. Embedding Learning
 - Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025

@@ -4,12 +4,12 @@ The ICE toolkit is designed to embed concepts into items such that the resulted 
 Specifically, ICE incorporates items and their representative concepts (words extracted from the item's textual information) using a heterogeneous network and then learns the embeddings for both items and concepts in terms of the shared concept words.
 Since items are defined in terms of concepts, adding expanded concepts into the network allows the learned embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
-## 1-1) Developement Environment
+## 1.1) Developement Environment
 - g++ > 4.9
 - python3
 - cython
 
-## 1-2) Getting Started
+## 1.2) Getting Started
 Download:
 ```
 $ git clone https://github.com/CLIPLab/ICE

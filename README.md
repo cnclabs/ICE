@@ -142,10 +142,10 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 ```
 
 ## 3. Experimental Results
+Here, we report the ICE method's average performance based on 10 results for two tasks. For setup details and other experiments, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 - OMDB word-to-movie retrieval task:
     - Network setup: |W|=20, exp-5
     - Training parameters: dimensions=256, sample_times=200, negative_samples=2
-    - We report the average of 10 results.
 
 |    Genre   | Horror | Thriller | Western | Action | Short | Sci-Fi | Average |
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|

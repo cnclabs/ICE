@@ -11,18 +11,18 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 - cython
 
 ### 1.2. Getting Started
-Download:
+#### Download:
 ```
 $ git clone https://github.com/CLIPLab/ICE
 $ cd ./ICE/ice
 ```
 
-c++ compilation:
+#### c++ compilation:
 ```
 $ make ice
 $ ./ice
 ```
-python3 API compilation:
+#### python3 API compilation:
 ```
 $ make python
 ```

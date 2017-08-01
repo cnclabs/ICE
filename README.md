@@ -28,7 +28,7 @@ $ make python
 
 ## ICE Graph Construction
 ```
-$ python graph.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
+$ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
 Parameters:
 ```

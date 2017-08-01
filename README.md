@@ -10,16 +10,21 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 - cython
 
 ## Getting Started
-c++ compilation
+Download:
+```
+$ git clone https://github.com/CLIPLab/ICE
+```
+
+c++ compilation:
 ```
 $ git clone https://github.com/CLIPLab/ICE
 $ cd ./ICE/ICE
 $ make cli
 $ ./cli
 ```
-python3 API compilation
+python3 API compilation:
 ```
-make python
+$ make python
 ```
 
 ## ICE Graph Construction

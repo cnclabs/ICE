@@ -74,7 +74,7 @@ The_Beatles pop 1
 ```
 Options:
         -train <string>
-                Path to the network for embedding learning
+                Path to the network used for embedding learning
         -save <string>
                 Path to save the embedding file
         -dim <int>

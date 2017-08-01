@@ -142,7 +142,7 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 - OMDB word-to-movie retrieval task:
     - Network setup: |W|=20, exp-5
     - Training parameters: dimensions=256, sample_times=200, negative_samples=2
-    - Reported numbers are the average of 10 results.
+    - Reported numbers are the average of 10 results.
 
 |    Genre   | Horror | Thriller | Western | Action | Short | Sci-Fi | Average |
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|
@@ -152,7 +152,7 @@ The_Beatles 2.21267 1.66775 0.42715 0.702507
 - KKBOX word-to-song retrieval task:
     - Network setup: |W|=10, exp-3
     - Training parameters: dimensions=300, sample_times=10000, negative_samples=5
-    - Reported numbers are the average of 10 results.
+    - Reported numbers are the average of 10 results.
 
 
 |Query|失落 (lost)|心痛 (heartache)|想念 (pining)|深愛 (affectionate)|難過 (sad)|回家 (home)|房間 (room)|海邊 (seaside)|火車 (train)|花園 (garden)|夕陽 (dusk)|日出 (sunrise)|日落 (sunset)|月亮 (moon)|黑夜 (night)|Average|

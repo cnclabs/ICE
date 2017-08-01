@@ -65,7 +65,9 @@ The_Beatles pop 1
 ```
 
 ### 2.2. ICE Embedding Learning
-
+```
+./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
+```
 Parameters:
 ```
 Options:
@@ -85,10 +87,6 @@ Options:
                 Initial learning rate; default is 0.025
 ```
 
-Example Usage:
-```
-./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
-```
 
 ## Python3 API usage
 After the compilation of python3, see example.py for example usage

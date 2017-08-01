@@ -28,7 +28,7 @@ $ make python
 ```
 
 ## 2. API Usage
-### 2.1. Graph Construction
+### 2.1. ICE Graph Construction
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
@@ -64,7 +64,7 @@ The_Beatles rock 1
 The_Beatles pop 1
 ```
 
-### 2.2. Embedding Learning
+### 2.2. ICE Embedding Learning
 
 Parameters:
 ```

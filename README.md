@@ -28,7 +28,7 @@ $ make python
 ```
 
 ## 2. API Usage
-There are two stages in the ICE framework: graph construction and embedding learning. In the first stage, the ICE combines an entity-text and a text-text network to form an ICE network. In the second stage, the ICE learns the embeddings of both items an concepts based on the ICE network.
+There are two stages in the ICE framework: graph construction and embedding learning. In the first stage, the ICE network is constructed from an entity-text network and an text-text network. In the second stage, the embeddings of both items an concepts are learned based on the relations specified in the ICE network.
 ### 2.1 Graph Construction
 - Run:
 ```

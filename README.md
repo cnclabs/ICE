@@ -28,18 +28,18 @@ $ make python
 
 ## ICE Graph Construction
 ```
-$ python graph.py -i ./data/lyrics_small.csv -w ./data/word-edges_en.txt -o network.edgelist
+$ python graph.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
 Parameters:
 ```
-  -i <string>, --input <string>
-          Input File Name
-  -w <string>, --wordedges <string>
-          Word Edges File Name
-  -o <string>, --output <string>
-          Output File Name
+  -et <string>, --et_network <string>
+          Input Entity-text Network
+  -tt <string>, --tt_network <string>
+          Input Text-text Network
+  -ice <string>, --ice_network <string>
+          Output ICE Network
 ```
-Sample files: See `data/lyrics_small.csv` and `data/word-edges_en.txt`
+Sample files: See `data/song_et.edge` and `data/song_tt.edge`
 #### Example Input
 network.edgelist
 ```txt
@@ -68,24 +68,24 @@ Parameters:
 ```
 Options:
         -train <string>
-                Train the Network data
-        -save <string>
-                Save the representation data
-        -dimensions <int>
-                Dimension of vertex representation; default is 64
-        -negative_samples <int>
+                Path to the network for embedding learning
+        -save <string>
+                Path to save the embedding file
+        -dim <int>
+                Dimension of embedding; default is 64
+        -neg <int>
                 Number of negative examples; default is 5
-        -sample_times <int>
+        -sample <int>
                 Number of training samples *Million; default is 10
-        -threads <int>
+        -thread <int>
                 Number of training threads; default is 1
         -alpha <float>
-                Init learning rate; default is 0.025
+                Initial learning rate; default is 0.025
 ```
 
 Example Usage:
 ```
-./cli -train network.edgelist -save rep.txt -dimensions 4 -sample_times 10 -negative_samples 5 -alpha 0.025 -threads 1
+./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
 ```
 
 ## Python3 API usage
@@ -125,7 +125,7 @@ network = {
 }
 ice.load_dict(network)
 ice.init(dimension=4)
-ice.train(sample_times=11, negative_samples=5, alpha=0.025, workers=1)
+ice.train(sample=11, neg=5, alpha=0.025, workers=1)
 ice.save_weights(model_name='ICE.rep')
 ```
 

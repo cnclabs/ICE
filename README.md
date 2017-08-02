@@ -22,14 +22,41 @@ $ cd ./ICE/ice
 $ make ice
 $ ./ice
 ```
-#### python3 API compilation:
+#### python3 API compilation
 ```
 $ make python
 ```
 
 ## 2. API Usage
-There are two stages in the ICE framework: graph construction and embedding learning. In the first stage, the API combines an entity-text network and a text-text network to form an ICE network. In the second stage, the API learns the embeddings of both items and entities based on the relations specified in the ICE network.
-### 2.1 Graph Construction
+There are two stages in the ICE framework: graph construction and embedding learning. In the first stage, the API combines the entity-text network and the text-text network to form the ICE network. In the second stage, the API learns the embeddings of both items and entities based on the relations specified in the ICE network.
+
+
+### 2.1. Network Construction
+Users are responsible to provide an entity-text network and a text-text network as the basis components to construct an ICE network. Here, we provide a general idea of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
+
+#### Entity-text network:
+- The entity-text network is a directed network with edges pointing from an item to its representative concept words.
+- The representative words of an item can be selected in many ways, e.g. the item's top TF-IDF words.
+- Every line in the entity-text network follows the "item word weight" format, for example:
+```
+"Toy Story" toys 1
+"Toy Story" stuffed_animals 1
+"Star Wars" jedi 1
+"Star Wars" vader 1
+```
+#### Text-text network:
+- The text-text network is a bidirected network with edges pointing between conceptually similar words. Notice every word has a self-loop since a word is conceptually similar to itself.
+- The conceptual similarity between words can be determined in many ways, e.g. cosine similarity of word embeddings or via a knowledge graph.
+- Every line in the text-text network follows the format "word word weight", for example:
+```
+toys toys 1
+toys stuffed_animals 1
+stuffed_animals toys 1
+stuffed_animals stuffed_animals 1
+jedi jedi 1
+vader vader 1
+```
+- Notice "toys" is considered conceptually similar to "stuffed_animals"; however, "jedi" and "vader" are not.
 #### Run:
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
@@ -44,27 +71,6 @@ $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice
           Output ICE Network
 ```
 - For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
-#### Example Input
-network.edgelist
-```txt
-五月天 Taiwanese 1
-五月天 rock 1
-五月天 band 1
-MAYDAY@ Taiwanese 1
-MAYDAY@ rock 1
-MAYDAY@ band 1
-Sodagreen Taiwanese 1
-Sodagreen indie 1
-Sodagreen pop_rock 1
-Sodagreen band 1
-SEKAI_NO_OWARI Japanese 1
-SEKAI_NO_OWARI indie 1
-SEKAI_NO_OWARI pop_rock 1
-SEKAI_NO_OWARI band 1
-The_Beatles England 1
-The_Beatles rock 1
-The_Beatles pop 1
-```
 
 ### 2.2. Embedding Learning
 #### Run:
@@ -92,7 +98,7 @@ Options:
 
 
 ## Python3 API usage
-After the compilation of python3, see example.py for example usage
+After compiling python3, please see example.py for example usage
 ```python
 from pyICE import pyICE
 
@@ -132,17 +138,8 @@ ice.train(sample=11, neg=5, alpha=0.025, workers=1)
 ice.save_weights(model_name='ICE.rep')
 ```
 
-## Example Output (Embeddings)
-```txt
-五月天 0.47944 1.03708 -1.78878 -0.856039
-MAYDAY@ 0.48029 1.04692 -1.78591 -0.855289
-Sodagreen -0.849743 0.435535 -1.41524 1.75017
-SEKAI_NO_OWARI 1.23796 -1.43277 -1.12657 1.28416
-The_Beatles 2.21267 1.66775 0.42715 0.702507
-```
-
 ## 3. Experimental Results
-Here, we report the average performance of 10 results for two tasks. For details and other experiments, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
+Here, we report the average performance of 10 embeddings trained under the same setting for two tasks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 - OMDB word-to-movie retrieval task:
     - Graph construction: 20 representative words per item and 5 expanded words per representative word.
     - Embedding learning: dim=256, sample=200, neg=2

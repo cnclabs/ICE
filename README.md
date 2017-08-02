@@ -33,7 +33,7 @@ $ make python
 Users need to provide an entity-text network and a text-text network to construct an ICE network. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 
 #### Entity-text network:
-- Every line in the entity-text network follows the "item word weight" format, for example:
+Format: "item word weight"
 ```
 Toy_Story toys 1
 Toy_Story stuffed_animals 1
@@ -41,7 +41,7 @@ Star_Wars jedi 1
 Star_Wars rebel 1
 ```
 #### Text-text network:
-- Every line in the text-text network follows the format "word word weight", for example:
+Format: "word word weight"
 ```
 toys toys 1
 toys stuffed_animals 1

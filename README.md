@@ -50,7 +50,7 @@ rebel rebel 1
 ```
 ##### Run:
 ```
-$ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
+$ python construct_ice.py -et ../data/movie_et.edge -tt ../data/movie_tt.edge -ice movie_ice.edge
 ```
 ##### Parameters:
 ```
@@ -61,7 +61,7 @@ $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice
   -ice <string>, --ice_network <string>
           Output ICE Network
 ```
-For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
+For sample files, please see `data/movie_et.edge` and `data/movie_tt.edge`.
 
 ### 2.2. ICE Embedding Learning
 #### 2.2.1 Command line interface usage

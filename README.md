@@ -32,7 +32,7 @@ There are two stages in the ICE framework: graph construction and embedding lear
 
 
 ### 2.1. Network Construction
-Users are responsible to provide an entity-text network and a text-text network as the basis components to construct an ICE network. Here, we provide a general idea of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
+Users are responsible to provide an entity-text network and a text-text network as the basis components to construct an ICE network. Here, we provide a highlight of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 
 #### Entity-text network:
 - The entity-text network is a directed network with edges pointing from an item to its representative concept words.

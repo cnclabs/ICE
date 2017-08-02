@@ -17,12 +17,12 @@ $ git clone https://github.com/cnclabs/ICE
 $ cd ./ICE/ice
 ```
 
-#### Command line interface compilation:
+#### Compile command line interface:
 ```
 $ make ice
 $ ./ice
 ```
-#### python3 API compilation:
+#### Compile python3 API:
 This is an alternative to running `ice`. For usage, please refer to "python3 API usage".
 ```
 $ make python

@@ -32,16 +32,14 @@ $ make python
 ### 2.1. ICE Network Construction
 Users need to provide an entity-text network and a text-text network to construct an ICE network. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 
-#### Entity-text network:
-Format: "item word weight"
+#### Entity-text network format: "item word weight"
 ```
 Toy_Story toys 1
 Toy_Story stuffed_animals 1
 Star_Wars jedi 1
 Star_Wars rebel 1
 ```
-#### Text-text network:
-Format: "word word weight"
+#### Text-text network format: "word word weight"
 ```
 toys toys 1
 toys stuffed_animals 1
@@ -50,11 +48,11 @@ stuffed_animals stuffed_animals 1
 jedi jedi 1
 rebel rebel 1
 ```
-Run:
+##### Run:
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
-Parameters:
+##### Parameters:
 ```
   -et <string>, --et_network <string>
           Input Entity-text Network
@@ -67,11 +65,11 @@ For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
 
 ### 2.2. ICE Embedding Learning
 #### 2.2.1 Command line interface usage
-Run:
+##### Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
 ```
-Parameters:
+##### Parameters:
 ```
 Options:
         -train <string>

@@ -66,7 +66,8 @@ $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice
 - For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
 
 ### 2.2. ICE Embedding Learning
-#### Run:
+#### c++ API usage
+##### Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
 ```

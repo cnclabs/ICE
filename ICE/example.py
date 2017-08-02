@@ -3,7 +3,7 @@ from pyICE import pyICE
 ice = pyICE()
 # ice.load_edge_list('./network.edgelist')
 network = {
-    '五月天': {
+    'MAYDAY': {
         'Taiwanese': 1,
         'rock': 1,
         'band': 1

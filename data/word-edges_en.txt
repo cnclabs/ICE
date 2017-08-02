@@ -27,6 +27,7 @@ cry sob 1
 cry tear 1
 cry tears 1
 cry weep 1
+cry cry 1
 dad family 1
 daughter family 1
 disappear disappearance 1

@@ -14,41 +14,32 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 #### Download:
 ```
 $ git clone https://github.com/cnclabs/ICE
-$ cd ./ICE/ICE
+$ cd ./ICE/ice
 ```
 
-#### c++ compilation:
+#### Command line interface compilation:
 ```
 $ make ice
 $ ./ice
 ```
-#### python3 API compilation
+#### python3 API compilation:
+This is an alternative to running `ice`. For usage, please refer to "python3 API usage".
 ```
 $ make python
 ```
 
-## 2. API Usage
-There are two stages in the ICE framework: graph construction and embedding learning. In the first stage, the API combines the entity-text network and the text-text network to form the ICE network. In the second stage, the API learns the embeddings of both items and entities based on the relations specified in the ICE network.
-
-
+## 2. Usages
 ### 2.1. ICE Network Construction
-Users are responsible to provide an entity-text network and a text-text network as the basis components to construct an ICE network. Here, we provide a highlight of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
+Users need to provide an entity-text network and a text-text network to construct an ICE network. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 
-#### Entity-text network:
-- The entity-text network is a directed network with edges pointing from an item to its representative concept words.
-- The representative words of an item can be selected in many ways, e.g. the item's top TF-IDF words.
-- Every line in the entity-text network follows the "item word weight" format, for example:
+#### Entity-text network format: "item word weight"
 ```
 Toy_Story toys 1
 Toy_Story stuffed_animals 1
 Star_Wars jedi 1
 Star_Wars rebel 1
 ```
-#### Text-text network:
-- The text-text network is a bidirected network with edges pointing between conceptually similar words. Notice every word has a self-loop since a word is conceptually similar to itself.
-- The conceptual similarity between words can be determined in many ways, e.g. cosine similarity of word embeddings.
-- Additional concepts can be added in many ways, e.g. word embeddings trained on external corpus or via a knowledge graph.
-- Every line in the text-text network follows the format "word word weight", for example:
+#### Text-text network format: "word word weight"
 ```
 toys toys 1
 toys stuffed_animals 1
@@ -57,12 +48,11 @@ stuffed_animals stuffed_animals 1
 jedi jedi 1
 rebel rebel 1
 ```
-- Notice "toys" is considered conceptually similar to "stuffed_animals"; however, "jedi" and "rebel" are not considered conceptually similar.
-#### Run:
+##### Run:
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
-#### Parameters:
+##### Parameters:
 ```
   -et <string>, --et_network <string>
           Input Entity-text Network
@@ -71,14 +61,15 @@ $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice
   -ice <string>, --ice_network <string>
           Output ICE Network
 ```
-- For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
+For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
 
 ### 2.2. ICE Embedding Learning
-#### Run:
+#### 2.2.1 Command line interface usage
+##### Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
 ```
-#### Parameters:
+##### Parameters:
 ```
 Options:
         -train <string>
@@ -98,7 +89,8 @@ Options:
 ```
 
 
-## Python3 API usage
+#### 2.2.2 python3 API usage
+The API is only tested on python3.
 After compiling python3, please see example.py for example usage
 ```python
 from pyICE import pyICE

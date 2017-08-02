@@ -9,6 +9,6 @@ ice: $(OBJECTS)
 python:
 	CC=$(CC) CXX=$(CXX) python3 setup.py build_ext -i
 clean:
+	rm ./ice
 	rm $(OBJECTS)
 	rm ./libvvNet.a
-	rm *.so

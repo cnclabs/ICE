@@ -6,7 +6,7 @@ Specifically, ICE incorporates items and their representative concepts (words ex
 Since items are defined in terms of concepts, adding expanded concepts into the network allows the learned embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
 ### 1.1. System Requirements
-- g++ > 4.9
+- g++ 4.9
 - python3
 - cython
 
@@ -14,13 +14,12 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 #### Download:
 ```
 $ git clone https://github.com/cnclabs/ICE
-$ cd ./ICE/ice
+$ cd ./ICE/ICE
 ```
 
 #### Compile command line interface:
 ```
 $ make ice
-$ ./ice
 ```
 #### Compile python3 API:
 This is an alternative to running `ice`. For usage, please refer to "python3 API usage".
@@ -50,7 +49,7 @@ rebel rebel 1
 ```
 ##### Run:
 ```
-$ python construct_graph.py -et ../data/movie_et.edge -tt ../data/movie_tt.edge -ice movie_ice.edge
+$ python3 construct_graph.py -et ../data/movie_et.edge -tt ../data/movie_tt.edge -ice movie_ice.edge
 ```
 ##### Parameters:
 ```
@@ -67,7 +66,7 @@ For sample files, please see `data/movie_et.edge` and `data/movie_tt.edge`.
 #### 2.2.1 Command line interface usage
 ##### Run:
 ```
-./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
+./ice -train movie_ice.edge -save movie.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
 ```
 ##### Parameters:
 ```
@@ -91,7 +90,7 @@ Options:
 
 #### 2.2.2 python3 API usage
 The API is only tested on python3.
-After compiling python3, please see example.py for example usage
+After compiling python3, use `python3 example.py` for running the codes.
 ```python
 from pyICE import pyICE
 
@@ -106,7 +105,7 @@ network = {
 ice.load_dict(network)
 ice.init(dimension=4)
 ice.train(sample=11, neg=5, alpha=0.025, workers=1)
-ice.save_weights(model_name='ICE.rep')
+ice.save_weights(model_name='example.embd')
 ```
 
 ## 3. Experimental Results

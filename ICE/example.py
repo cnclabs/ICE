@@ -34,4 +34,4 @@ network = {
 ice.load_dict(network)
 ice.init(dimension=4)
 ice.train(sample_times=11, negative_samples=5, alpha=0.025, workers=1)
-ice.save_weights(model_name='ICE.rep')
+ice.save_weights(model_name='example.embd')

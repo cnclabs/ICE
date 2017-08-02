@@ -50,7 +50,7 @@ rebel rebel 1
 ```
 ##### Run:
 ```
-$ python construct_ice.py -et ../data/movie_et.edge -tt ../data/movie_tt.edge -ice movie_ice.edge
+$ python construct_graph.py -et ../data/movie_et.edge -tt ../data/movie_tt.edge -ice movie_ice.edge
 ```
 ##### Parameters:
 ```

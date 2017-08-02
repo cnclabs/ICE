@@ -30,7 +30,7 @@ $ make python
 
 ## 2. Usages
 ### 2.1. ICE Network Construction
-Users are responsible to provide an entity-text network and a text-text network as the basis components to construct an ICE network. Here, we provide a highlight of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
+Users provide an entity-text network and a text-text network to construct an ICE network. Here, we provide a highlight of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 
 #### Entity-text network:
 - Every line in the entity-text network follows the "item word weight" format, for example:
@@ -50,11 +50,11 @@ stuffed_animals stuffed_animals 1
 jedi jedi 1
 rebel rebel 1
 ```
-- Run:
+Run:
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
-- Parameters:
+Parameters:
 ```
   -et <string>, --et_network <string>
           Input Entity-text Network
@@ -63,15 +63,15 @@ $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice
   -ice <string>, --ice_network <string>
           Output ICE Network
 ```
-- For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
+For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
 
 ### 2.2. ICE Embedding Learning
 #### 2.2.1 c++ API usage
-- Run:
+Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
 ```
-- Parameters:
+Parameters:
 ```
 Options:
         -train <string>

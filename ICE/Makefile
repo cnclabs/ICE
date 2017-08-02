@@ -1,5 +1,5 @@
-CC = g++-5
-CXX = g++-5
+CC = g++
+CXX = g++
 CPPFLAGS = -std=c++11 -fPIC -fopenmp -lm -O3
 OBJECTS = vvNet.o ICE.o
 

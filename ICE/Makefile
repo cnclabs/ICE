@@ -5,7 +5,7 @@ OBJECTS = vvNet.o ICE.o
 
 ice: $(OBJECTS)
 	ar rcs ./libvvNet.a $(OBJECTS)
-	$(CC) $(CPPFLAGS) cli.cpp -L./ -lvvNet -lboost_random -o ice
+	$(CC) $(CPPFLAGS) main.cpp -L./ -lvvNet -lboost_random -o ice
 python:
 	CC=$(CC) CXX=$(CXX) python3 setup.py build_ext -i
 clean:

@@ -13,8 +13,8 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 ### 1.2. Getting Started
 #### Download:
 ```
-$ git clone https://github.com/CLIPLab/ICE
-$ cd ./ICE/ice
+$ git clone https://github.com/cnclabs/ICE
+$ cd ./ICE/ICE
 ```
 
 #### c++ compilation:
@@ -39,10 +39,10 @@ Users are responsible to provide an entity-text network and a text-text network 
 - The representative words of an item can be selected in many ways, e.g. the item's top TF-IDF words.
 - Every line in the entity-text network follows the "item word weight" format, for example:
 ```
-"Toy Story" toys 1
-"Toy Story" stuffed_animals 1
-"Star Wars" jedi 1
-"Star Wars" rebel 1
+Toy_Story toys 1
+Toy_Story stuffed_animals 1
+Star_Wars jedi 1
+Star_Wars rebel 1
 ```
 #### Text-text network:
 - The text-text network is a bidirected network with edges pointing between conceptually similar words. Notice every word has a self-loop since a word is conceptually similar to itself.
@@ -105,33 +105,11 @@ from pyICE import pyICE
 
 ice = pyICE()
 network = {
-    '五月天': {
-        'Taiwanese': 1,
-        'rock': 1,
-        'band': 1
-        },
-    'MAYDAY@': {
-        'Taiwanese': 1,
-        'rock': 1,
-        'band': 1
-        },
-    'Sodagreen': {
-        'Taiwanese': 1,
-        'indie': 1,
-        'pop_rock': 1,
-        'band': 1
-        },
-    'SEKAI_NO_OWARI': {
-        'Japanese': 1,
-        'indie': 1,
-        'pop_rock': 1,
-        'band': 1
-        },
-    'The_Beatles': {
-        'England': 1,
-        'rock': 1,
-        'pop': 1
-        }
+    'MAYDAY': {'Taiwanese': 1, 'rock': 1,'band': 1},
+    'MAYDAY@': {'Taiwanese': 1, 'rock': 1, 'band': 1},
+    'Sodagreen': {'Taiwanese': 1, 'indie': 1, 'pop_rock': 1, 'band': 1},
+    'SEKAI_NO_OWARI': {'Japanese': 1, 'indie': 1, 'pop_rock': 1, 'band': 1},
+    'The_Beatles': {'England': 1, 'rock': 1, 'pop': 1}
 }
 ice.load_dict(network)
 ice.init(dimension=4)

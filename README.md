@@ -31,7 +31,7 @@ $ make python
 There are two stages in the ICE framework: graph construction and embedding learning. In the first stage, the API combines the entity-text network and the text-text network to form the ICE network. In the second stage, the API learns the embeddings of both items and entities based on the relations specified in the ICE network.
 
 
-### 2.1. Network Construction
+### 2.1. ICE Network Construction
 Users are responsible to provide an entity-text network and a text-text network as the basis components to construct an ICE network. Here, we provide a highlight of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 
 #### Entity-text network:
@@ -73,7 +73,7 @@ $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice
 ```
 - For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
 
-### 2.2. Embedding Learning
+### 2.2. ICE Embedding Learning
 #### Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025

@@ -66,7 +66,7 @@ Parameters:
 For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
 
 ### 2.2. ICE Embedding Learning
-#### 2.2.1 c++ API usage
+#### 2.2.1 Command line interface usage
 Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025

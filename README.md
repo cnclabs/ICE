@@ -47,7 +47,7 @@ Users are responsible to provide an entity-text network and a text-text network 
 #### Text-text network:
 - The text-text network is a bidirected network with edges pointing between conceptually similar words. Notice every word has a self-loop since a word is conceptually similar to itself.
 - The conceptual similarity between words can be determined in many ways, e.g. cosine similarity of word embeddings.
-- Additional concepts can be added in many ways, e.g. word embeddings trained on external sources or via a knowledge graph.
+- Additional concepts can be added in many ways, e.g. word embeddings trained on external corpus or via a knowledge graph.
 - Every line in the text-text network follows the format "word word weight", for example:
 ```
 toys toys 1

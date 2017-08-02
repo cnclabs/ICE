@@ -42,7 +42,7 @@ Users are responsible to provide an entity-text network and a text-text network 
 "Toy Story" toys 1
 "Toy Story" stuffed_animals 1
 "Star Wars" jedi 1
-"Star Wars" vader 1
+"Star Wars" rebel 1
 ```
 #### Text-text network:
 - The text-text network is a bidirected network with edges pointing between conceptually similar words. Notice every word has a self-loop since a word is conceptually similar to itself.
@@ -55,9 +55,9 @@ toys stuffed_animals 1
 stuffed_animals toys 1
 stuffed_animals stuffed_animals 1
 jedi jedi 1
-vader vader 1
+rebel rebel 1
 ```
-- Notice "toys" is considered conceptually similar to "stuffed_animals"; however, "jedi" and "vader" are not.
+- Notice "toys" is considered conceptually similar to "stuffed_animals"; however, "jedi" and "rebel" are not considered conceptually similar.
 #### Run:
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge

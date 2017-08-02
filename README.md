@@ -13,8 +13,8 @@ Since items are defined in terms of concepts, adding expanded concepts into the 
 ### 1.2. Getting Started
 #### Download:
 ```
-$ git clone https://github.com/CLIPLab/ICE
-$ cd ./ICE/ice
+$ git clone https://github.com/cnclabs/ICE
+$ cd ./ICE/ICE
 ```
 
 #### c++ compilation:
@@ -31,7 +31,7 @@ $ make python
 There are two stages in the ICE framework: graph construction and embedding learning. In the first stage, the API combines the entity-text network and the text-text network to form the ICE network. In the second stage, the API learns the embeddings of both items and entities based on the relations specified in the ICE network.
 
 
-### 2.1. Network Construction
+### 2.1. ICE Network Construction
 Users are responsible to provide an entity-text network and a text-text network as the basis components to construct an ICE network. Here, we provide a highlight of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 
 #### Entity-text network:
@@ -39,10 +39,10 @@ Users are responsible to provide an entity-text network and a text-text network 
 - The representative words of an item can be selected in many ways, e.g. the item's top TF-IDF words.
 - Every line in the entity-text network follows the "item word weight" format, for example:
 ```
-"Toy Story" toys 1
-"Toy Story" stuffed_animals 1
-"Star Wars" jedi 1
-"Star Wars" rebel 1
+Toy_Story toys 1
+Toy_Story stuffed_animals 1
+Star_Wars jedi 1
+Star_Wars rebel 1
 ```
 #### Text-text network:
 - The text-text network is a bidirected network with edges pointing between conceptually similar words. Notice every word has a self-loop since a word is conceptually similar to itself.
@@ -73,7 +73,7 @@ $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice
 ```
 - For sample files, please see `data/song_et.edge` and `data/song_tt.edge`.
 
-### 2.2. Embedding Learning
+### 2.2. ICE Embedding Learning
 #### Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
@@ -105,33 +105,11 @@ from pyICE import pyICE
 
 ice = pyICE()
 network = {
-    '五月天': {
-        'Taiwanese': 1,
-        'rock': 1,
-        'band': 1
-        },
-    'MAYDAY@': {
-        'Taiwanese': 1,
-        'rock': 1,
-        'band': 1
-        },
-    'Sodagreen': {
-        'Taiwanese': 1,
-        'indie': 1,
-        'pop_rock': 1,
-        'band': 1
-        },
-    'SEKAI_NO_OWARI': {
-        'Japanese': 1,
-        'indie': 1,
-        'pop_rock': 1,
-        'band': 1
-        },
-    'The_Beatles': {
-        'England': 1,
-        'rock': 1,
-        'pop': 1
-        }
+    'MAYDAY': {'Taiwanese': 1, 'rock': 1,'band': 1},
+    'MAYDAY@': {'Taiwanese': 1, 'rock': 1, 'band': 1},
+    'Sodagreen': {'Taiwanese': 1, 'indie': 1, 'pop_rock': 1, 'band': 1},
+    'SEKAI_NO_OWARI': {'Japanese': 1, 'indie': 1, 'pop_rock': 1, 'band': 1},
+    'The_Beatles': {'England': 1, 'rock': 1, 'pop': 1}
 }
 ice.load_dict(network)
 ice.init(dimension=4)
@@ -140,7 +118,7 @@ ice.save_weights(model_name='ICE.rep')
 ```
 
 ## 3. Experimental Results
-Here, we report the average performance of 10 embeddings trained under the same setting for two tasks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
+Here, we report the average performance based on 10 embeddings trained under the same setting. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 - OMDB word-to-movie retrieval task:
     - Graph construction: 20 representative words per item and 5 expanded words per representative word.
     - Embedding learning: dim=256, sample=200, neg=2

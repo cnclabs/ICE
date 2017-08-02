@@ -140,7 +140,7 @@ ice.save_weights(model_name='ICE.rep')
 ```
 
 ## 3. Experimental Results
-Here, we report the average performance of 10 embeddings trained under the same setting for two tasks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
+Here, we report the average performance based on 10 embeddings trained under the same setting. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 - OMDB word-to-movie retrieval task:
     - Graph construction: 20 representative words per item and 5 expanded words per representative word.
     - Embedding learning: dim=256, sample=200, neg=2

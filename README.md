@@ -18,12 +18,13 @@ $ cd ./ICE/ice
 ```
 
 #### c++ API compilation:
+This will generate the command line interface file `ice`.
 ```
 $ make ice
 $ ./ice
 ```
 #### python3 API compilation:
-This is an alternative to running the c++ API. For usage, please refer to "python3 API usage".
+This is an alternative to running `ice`. For usage, please refer to "python3 API usage".
 ```
 $ make python
 ```

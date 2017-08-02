@@ -1,11 +1,11 @@
-CC = g++-4.9
-CXX = g++-4.9
+CC = g++-5
+CXX = g++-5
 CPPFLAGS = -std=c++11 -fPIC -fopenmp -lm -O3
 OBJECTS = vvNet.o ICE.o
 
-cli: $(OBJECTS)
+ice: $(OBJECTS)
 	ar rcs ./libvvNet.a $(OBJECTS)
-	$(CC) $(CPPFLAGS) cli.cpp -L./ -lvvNet -lboost_random -o cli
+	$(CC) $(CPPFLAGS) cli.cpp -L./ -lvvNet -lboost_random -o ice
 python:
 	CC=$(CC) CXX=$(CXX) python3 setup.py build_ext -i
 clean:

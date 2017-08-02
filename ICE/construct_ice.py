@@ -19,7 +19,7 @@ if __name__ == '__main__':
     if CONFIG.entitytext == None:
         print("Please give Entity-Text edgelist!\nusage: graph.py [-h] [-et ENTITYTEXT] [-o OUTPUT] [-tt TEXTEDGES]")
         sys.exit()
-    elif CONFIG.output == None:
+    elif CONFIG.icefile == None:
         print("Please give ICE graph name\nusage: graph.py [-h] [-et ENTITYTEXT] [-o OUTPUT] [-tt TEXTEDGES]")
         sys.exit()
     elif CONFIG.textedges == None:

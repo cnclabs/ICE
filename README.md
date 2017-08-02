@@ -17,17 +17,18 @@ $ git clone https://github.com/cnclabs/ICE
 $ cd ./ICE/ice
 ```
 
-#### c++ compilation:
+#### c++ API compilation:
 ```
 $ make ice
 $ ./ice
 ```
-#### (Only for API usage) python3 API compilation
+#### python3 API compilation:
+This is an alternative to running the c++ API. For usage, please refer to "python3 API usage".
 ```
 $ make python
 ```
 
-## 2. Usage
+## 2. Usages
 ### 2.1. ICE Network Construction
 Users are responsible to provide an entity-text network and a text-text network as the basis components to construct an ICE network. Here, we provide a highlight of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 

@@ -11,7 +11,7 @@ if __name__ == '__main__':
     PARSER = argparse.ArgumentParser(description='Transform text data to edge list file.')
 
     PARSER.add_argument('-et', '--entitytext', default=None, help='Entity-Text edgelist File Name')
-    PARSER.add_argument('-o', '--output', default=None, help='ICE graph File Name')
+    PARSER.add_argument('-ice', '--icefile', default=None, help='ICE graph File Name')
     PARSER.add_argument('-tt', '--textedges', default=None, help='Text-Text edgelist File Name')
 
     CONFIG = PARSER.parse_args()
@@ -27,7 +27,7 @@ if __name__ == '__main__':
         sys.exit()
 
     input_path = CONFIG.entitytext
-    output_path = CONFIG.output
+    output_path = CONFIG.icefile
     word_edge_path = CONFIG.textedges
 
     item_count = 0

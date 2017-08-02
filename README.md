@@ -17,8 +17,7 @@ $ git clone https://github.com/cnclabs/ICE
 $ cd ./ICE/ice
 ```
 
-#### c++ API compilation:
-This will generate the command line interface file `ice`.
+#### Command line interface compilation:
 ```
 $ make ice
 $ ./ice

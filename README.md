@@ -31,7 +31,7 @@ $ make python
 
 ## 2. Usages
 ### 2.1. ICE Network Construction
-Users provide an entity-text network and a text-text network to construct an ICE network. Here, we provide a highlight of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
+Users need to provide an entity-text network and a text-text network to construct an ICE network. Here, we provide a highlight of how to construct both networks. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
 
 #### Entity-text network:
 - Every line in the entity-text network follows the "item word weight" format, for example:

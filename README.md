@@ -50,11 +50,11 @@ stuffed_animals stuffed_animals 1
 jedi jedi 1
 rebel rebel 1
 ```
-#### Run:
+- Run:
 ```
 $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice song_ice.edge
 ```
-#### Parameters:
+- Parameters:
 ```
   -et <string>, --et_network <string>
           Input Entity-text Network
@@ -67,11 +67,11 @@ $ python construct_ice.py -et ../data/song_et.edge -tt ../data/song_tt.edge -ice
 
 ### 2.2. ICE Embedding Learning
 #### c++ API usage
-##### Run:
+- Run:
 ```
 ./ice -train song_ice.edge -save song.embd -dim 4 -sample 10 -neg 5 -thread 1 -alpha 0.025
 ```
-#### Parameters:
+- Parameters:
 ```
 Options:
         -train <string>

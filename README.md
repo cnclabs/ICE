@@ -1,14 +1,14 @@
 # ICE: Item Concept Embedding via Textual Information
 ## 1. Introduction
-The ICE toolkit is designed to embed concepts into items such that the resulted item embeddings can be compared in terms of overall conceptual similarity regardless of item types ([ICE: Item Concept Embedding via Textual Information](http://dl.acm.org/citation.cfm?doid=3077136.3080807), SIGIR 2017). For example, a song can be used to retrieve conceptually similar songs (homogeneous) as well as conceptually similar concepts (heterogeneous). 
+The ICE toolkit is designed to embed the concepts of items into an embedding representation such that the resulted embeddings can be compared in terms of overall conceptual similarity regardless of item types ([ICE: Item Concept Embedding via Textual Information](http://dl.acm.org/citation.cfm?doid=3077136.3080807), SIGIR 2017). For example, a song can be used to retrieve conceptually similar songs (homogeneous) as well as conceptually similar concepts (heterogeneous).
 
-Specifically, ICE incorporates items and their representative concepts (words extracted from the item's textual information) using a heterogeneous network and then learns the embeddings for both items and concepts in terms of the shared concept words.
-Since items are defined in terms of concepts, adding expanded concepts into the network allows the learned embeddings to be used to retrieve conceptually more diverse and yet relevant results.
+In specific, ICE incorporates items and their representative concepts (words extracted from the item's textual information) using a heterogeneous network and then learns the embeddings for both items and concepts in terms of the shared concept words. Since items are defined in terms of concepts, adding expanded concepts into the network allows the learned embeddings to be used to retrieve conceptually more diverse and yet relevant results.
 
 ### 1.1. System Requirements
 - g++ 4.9
 - python3
 - cython
+- boost_random (due to which, the ICE toolkit is not workable on macOS yet.)
 
 ### 1.2. Getting Started
 #### Download:
@@ -22,10 +22,11 @@ $ cd ./ICE/ICE
 $ make ice
 ```
 #### Compile python3 API:
-This is an alternative to running `ice`. For usage, please refer to "python3 API usage".
+This is an alternative way to use the toolkit via its APIs. For the usage, please refer to Section 2.2.2.
 ```
 $ make python
 ```
+[Note: The API is only tested with Python 3.]
 
 ## 2. Usages
 ### 2.1. ICE Network Construction
@@ -53,12 +54,12 @@ $ python3 construct_graph.py -et ../data/movie_et.edge -tt ../data/movie_tt.edge
 ```
 ##### Parameters:
 ```
-  -et <string>, --et_network <string>
-          Input Entity-text Network
-  -tt <string>, --tt_network <string>
-          Input Text-text Network
-  -ice <string>, --ice_network <string>
-          Output ICE Network
+    -et <string>, --et_network <string>
+        Input Entity-text Network
+    -tt <string>, --tt_network <string>
+        Input Text-text Network
+    -ice <string>, --ice_network <string>
+        Output ICE Network
 ```
 For sample files, please see `data/movie_et.edge` and `data/movie_tt.edge`.
 
@@ -71,26 +72,25 @@ For sample files, please see `data/movie_et.edge` and `data/movie_tt.edge`.
 ##### Parameters:
 ```
 Options:
-        -train <string>
-                Path to the network used for embedding learning
-        -save <string>
-                Path to save the embedding file
-        -dim <int>
-                Dimension of embedding; default is 64
-        -neg <int>
-                Number of negative examples; default is 5
-        -sample <int>
-                Number of training samples *Million; default is 10
-        -thread <int>
-                Number of training threads; default is 1
-        -alpha <float>
-                Initial learning rate; default is 0.025
+    -train <string>
+        Path to the network used for embedding learning
+    -save <string>
+        Path to save the embedding file
+    -dim <int>
+        Dimension of embedding; default is 64
+    -neg <int>
+        Number of negative examples; default is 5
+    -sample <int>
+        Number of training samples *Million; default is 10
+    -thread <int>
+        Number of training threads; default is 1
+    -alpha <float>
+        Initial learning rate; default is 0.025
 ```
 
 
 #### 2.2.2 python3 API usage
-The API is only tested on python3.
-After compiling python3, use `python3 example.py` for running the codes.
+After compiling, please use `python3 example.py` for running the following codes.
 ```python
 from pyICE import pyICE
 
@@ -133,21 +133,21 @@ Here, we report the average performance based on 10 embeddings trained under the
 ## 4. Citation
 ```
 @inproceedings{Wang:2017:IIC:3077136.3080807,
- author = {Wang, Chuan-Ju and Wang, Ting-Hsiang and Yang, Hsiu-Wei and Chang, Bo-Sin and Tsai, Ming-Feng},
- title = {ICE: Item Concept Embedding via Textual Information},
- booktitle = {Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval},
- series = {SIGIR '17},
- year = {2017},
- isbn = {978-1-4503-5022-8},
- location = {Shinjuku, Tokyo, Japan},
- pages = {85--94},
- numpages = {10},
- url = {http://doi.acm.org/10.1145/3077136.3080807},
- doi = {10.1145/3077136.3080807},
- acmid = {3080807},
- publisher = {ACM},
- address = {New York, NY, USA},
- keywords = {concept embedding, conceptual retrieval, information network, textual information},
+    author = {Wang, Chuan-Ju and Wang, Ting-Hsiang and Yang, Hsiu-Wei and Chang, Bo-Sin and Tsai, Ming-Feng},
+    title = {ICE: Item Concept Embedding via Textual Information},
+    booktitle = {Proceedings of the 40th International ACM SIGIR Conference on Research and Development in Information Retrieval},
+    series = {SIGIR '17},
+    year = {2017},
+    isbn = {978-1-4503-5022-8},
+    location = {Shinjuku, Tokyo, Japan},
+    pages = {85--94},
+    numpages = {10},
+    url = {http://doi.acm.org/10.1145/3077136.3080807},
+    doi = {10.1145/3077136.3080807},
+    acmid = {3080807},
+    publisher = {ACM},
+    address = {New York, NY, USA},
+    keywords = {concept embedding, conceptual retrieval, information network, textual information},
 } 
 ```
 

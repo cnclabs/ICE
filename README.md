@@ -8,7 +8,7 @@ In specific, ICE incorporates items and their representative concepts (words ext
 - g++ 4.9
 - python3
 - cython
-- boost_random (due to which, the ICE toolkit is not workable on macOS yet.)
+- openmp (In macOS, it needs OpenMP-enabled compilers. Try ```brew install gcc --without-multilib```.)
 
 ### 1.2. Getting Started
 #### Download:

@@ -461,26 +461,6 @@
         "values": [
             {
                 "cate": "item",
-                "x": -2.246227809447752,
-                "y": 3.780959250108996,
-                "imdb_id": "tt0308402",
-                "title": "The Impossible Convicts",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQyOTg4NTE3Nl5BMl5BanBnXkFtZTcwNDUxOTIzMQ@@._V1_UY268_CR11,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -3.1017160671272226,
-                "y": 6.659133860422405,
-                "imdb_id": "tt3202968",
-                "title": "It's My Mother's Birthday Today",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQyOTg4NTE3Nl5BMl5BanBnXkFtZTcwNDUxOTIzMQ@@._V1_UY268_CR11,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
                 "x": -3.11214319112681,
                 "y": 5.815326569856254,
                 "imdb_id": "tt0796829",
@@ -885,66 +865,6 @@
         "key": "Action",
         "color": "#33cc33",
         "values": [
-            {
-                "cate": "item",
-                "x": -1.1884822863527706,
-                "y": 5.066613107398278,
-                "imdb_id": "tt1477109",
-                "title": "Space Battleship Yamato",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BNDg4OTQ4MjM2M15BMl5BanBnXkFtZTgwNTQxNjM3MTE@._V1._CR2,45,340,454_UY268_CR9,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -6.537777228099986,
-                "y": -3.65944709478794,
-                "imdb_id": "tt0077541",
-                "title": "Fei du juan yun shan",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTczNzk1MzA4Nl5BMl5BanBnXkFtZTcwODg5NTYyMQ@@._V1_UY268_CR2,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -5.692707207304916,
-                "y": -2.645915335871297,
-                "imdb_id": "tt0052604",
-                "title": "The Giant of Marathon",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BNzJkYzNiNGUtNTdlZC00NTk3LTkwZTUtZmViY2Q1NjhjM2E5XkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": 5.094659212407775,
-                "y": -11.458321154491394,
-                "imdb_id": "tt3919208",
-                "title": "Baji",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BNjJhMDYwNjAtOGRmNC00ZWFmLWI2MTEtN2UyMTY0ZDQzYzlmXkEyXkFqcGdeQXVyMzc0ODYyNzk@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -5.007699681854701,
-                "y": -1.3317065690221008,
-                "imdb_id": "tt2658126",
-                "title": "Commando",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BYjE3YzY3NzQtN2JkZC00OTU3LWI4NmUtYWU5ZDM0MDljNTI0XkEyXkFqcGdeQXVyNjQ2MjQ5NzM@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -1.0988012831739258,
-                "y": -5.614166494113458,
-                "imdb_id": "tt1135983",
-                "title": "Sasori",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BNjg0Njk1MTYzM15BMl5BanBnXkFtZTgwNjAwOTEzMjE@._V1_UY268_CR110,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
             {
                 "cate": "item",
                 "x": 9.767808667210632,
@@ -1453,62 +1373,12 @@
         "values": [
             {
                 "cate": "item",
-                "x": 8.948020724332132,
-                "y": -2.037590157799092,
-                "imdb_id": "tt0053825",
-                "title": "Flaming Star",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMmU1MjNkMDMtMWYzOS00MGRmLTk1ZDAtZGQ2ZWE4YmUyNTBmL2ltYWdlXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_UY268_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -2.752567009160413,
-                "y": -3.0522273058263822,
-                "imdb_id": "tt0007610",
-                "title": "'49-'17",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMmU1MjNkMDMtMWYzOS00MGRmLTk1ZDAtZGQ2ZWE4YmUyNTBmL2ltYWdlXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_UY268_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
                 "x": -1.4148549638044658,
                 "y": -4.172493151660522,
                 "imdb_id": "tt0062975",
                 "title": "Firecreek",
                 "shape": "circle",
                 "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BY2M4MDYzNWYtM2YzYi00NWRmLTgxZTctNDEwZjJkYWYwYWZiXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -6.35009279452439,
-                "y": -8.04141666083338,
-                "imdb_id": "tt0105695",
-                "title": "Unforgiven",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BODM3YWY4NmQtN2Y3Ni00OTg0LWFhZGQtZWE3ZWY4MTJlOWU4XkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -4.755817770870244,
-                "y": -2.1635660848231026,
-                "imdb_id": "tt0042395",
-                "title": "Devil's Doorway",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BNzA4NTQ4MDczNF5BMl5BanBnXkFtZTcwNjI1NTk5Mw@@._V1_UY268_CR4,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -4.106014035942534,
-                "y": -2.1822630649837857,
-                "imdb_id": "tt0057851",
-                "title": "Apache Rifles",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTc0ODUyNDQxMV5BMl5BanBnXkFtZTcwODk2MjE5Mw@@._V1_UY268_CR4,0,182,268_AL_.jpg",
                 "size": 0.1
             },
             {
@@ -1709,16 +1579,6 @@
                 "title": "Death Rides a Horse",
                 "shape": "circle",
                 "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BYzdiMzUyMDEtY2Y5ZS00OWUyLTk5MzctNWNjNDM3OGIyNDU4XkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -1.5766724648600703,
-                "y": -4.1413553220707575,
-                "imdb_id": "tt0062975",
-                "title": "Firecreek",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BY2M4MDYzNWYtM2YzYi00NWRmLTgxZTctNDEwZjJkYWYwYWZiXkEyXkFqcGdeQXVyMjI4MjA5MzA@._V1_UX182_CR0,0,182,268_AL_.jpg",
                 "size": 0.1
             },
             {
@@ -1989,46 +1849,6 @@
             },
             {
                 "cate": "item",
-                "x": -1.089337772066561,
-                "y": 5.114935114333419,
-                "imdb_id": "tt0076902",
-                "title": "The War in Space",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQzNTUzMTIwOV5BMl5BanBnXkFtZTYwOTI1Mjg5._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -0.7541479434182351,
-                "y": 5.038798379625887,
-                "imdb_id": "tt0106598",
-                "title": "Coneheads",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BYTNjNGM5OTktM2Q1Zi00YTFmLWJlYzUtMTMyMzgzNjNlNmQzL2ltYWdlXkEyXkFqcGdeQXVyNjE5MjUyOTM@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": 8.207972561473825,
-                "y": -2.8935640351919023,
-                "imdb_id": "tt4788944",
-                "title": "Robot Sound",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BOTRkNzMxY2ItM2EyMC00OWZjLWI5M2EtZmVlZDNhMWEzZjAzXkEyXkFqcGdeQXVyNTU2NzgyMjk@._V1_UY268_CR2,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -0.7512257134934875,
-                "y": 5.404910562573983,
-                "imdb_id": "tt0030138",
-                "title": "Flash Gordon's Trip to Mars",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTYwNjQyNjAzN15BMl5BanBnXkFtZTgwNTQ0NzkxMjE@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
                 "x": -3.2906155566005793,
                 "y": 5.448180217727271,
                 "imdb_id": "tt0810990",
@@ -2105,16 +1925,6 @@
                 "title": "Ready Player One",
                 "shape": "circle",
                 "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMjM0MzkxMzU2M15BMl5BanBnXkFtZTgwODg2NTg5MjI@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -1.5314043236610881,
-                "y": 3.91330172556694,
-                "imdb_id": "tt0062827",
-                "title": "Countdown",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMDM0YmRjMTktZmJmMS00M2ZiLWI1NDUtYzA1Nzg5MjZhOTJhXkEyXkFqcGdeQXVyNjc1NTYyMjg@._V1_UX182_CR0,0,182,268_AL_.jpg",
                 "size": 0.1
             },
             {
@@ -2459,16 +2269,6 @@
             },
             {
                 "cate": "item",
-                "x": -3.420725130630285,
-                "y": 5.615981662130428,
-                "imdb_id": "tt0810990",
-                "title": "Nos amis les Terriens",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BZjNhNzIwM2UtNGExNC00NzE5LWFiOWItZTE0NjRkNGI3OWU5XkEyXkFqcGdeQXVyMTYzNTE3NDA@._V1_UY268_CR7,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
                 "x": -0.7050884249897399,
                 "y": 4.83340709956019,
                 "imdb_id": "tt0120591",
@@ -2495,42 +2295,12 @@
         "values": [
             {
                 "cate": "item",
-                "x": -3.924014571267109,
-                "y": -4.0417013050543975,
-                "imdb_id": "tt0324127",
-                "title": "Suspect Zero",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BZTA1Zjc4MGQtYWZhOS00MTg4LWE1ZWItZTE5OWUxZDMwMGY1L2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMTQxNzMzNDI@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
                 "x": 4.757989432296357,
                 "y": -11.025263317419745,
                 "imdb_id": "tt0169543",
                 "title": "Almost Blue",
                 "shape": "circle",
                 "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTg4NTAwMjc1MV5BMl5BanBnXkFtZTcwMjAzNDQzMQ@@._V1_UY268_CR3,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -5.359578943760759,
-                "y": 0.6409265808982668,
-                "imdb_id": "tt0379765",
-                "title": "Drum",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTQ2NzA5NjgwOF5BMl5BanBnXkFtZTcwNDY5NjY5MQ@@._V1_UY268_CR2,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": -7.779870880226595,
-                "y": 4.403242614925487,
-                "imdb_id": "tt2147521",
-                "title": "Snow in Paradise",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BNzcxODg1NDU1Ml5BMl5BanBnXkFtZTgwNTcwOTU3MTE@._V1_UY268_CR230,0,182,268_AL_.jpg",
                 "size": 0.1
             },
             {
@@ -2621,16 +2391,6 @@
                 "title": "Dead Silent",
                 "shape": "circle",
                 "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTM5MDE1MDU5M15BMl5BanBnXkFtZTgwODQyOTk1MDE@._V1_UX182_CR0,0,182,268_AL_.jpg",
-                "size": 0.1
-            },
-            {
-                "cate": "item",
-                "x": 4.68417819958659,
-                "y": -11.00758146446204,
-                "imdb_id": "tt0169543",
-                "title": "Almost Blue",
-                "shape": "circle",
-                "src": "https://images-na.ssl-images-amazon.com/images/M/MV5BMTg4NTAwMjc1MV5BMl5BanBnXkFtZTcwMjAzNDQzMQ@@._V1_UY268_CR3,0,182,268_AL_.jpg",
                 "size": 0.1
             },
             {

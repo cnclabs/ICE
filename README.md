@@ -116,8 +116,8 @@ Here, we report the average performance based on 10 embeddings trained under the
 
 |    Genre   | Horror | Thriller | Western | Action | Short | Sci-Fi | Average |
 |:----------:|:------:|:--------:|:-------:|:------:|:-----:|:------:|:-------:|
-| Precision@50  |  0.329 |   0.211  |  0.338  |  0.446 | 0.087 |  0.389 |  0.300  |
-| Precision@100  |  0.320 |   0.214  |  0.292  |  0.425 | 0.074 |  0.380 |  0.284  |
+| Precision@50  |  0.322 |   0.206  |  0.318  |  0.449 | 0.100 |  0.386 |  0.297  |
+| Precision@100  |  0.316 |   0.203  |  0.281  |  0.423 | 0.080 |  0.382 |  0.281  |
 
 
 - KKBOX word-to-song retrieval task:

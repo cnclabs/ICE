@@ -8,7 +8,7 @@ In specific, ICE incorporates items and their representative concepts (words ext
 - g++ 4.9
 - python3
 - cython
-- openmp (In macOS, it needs OpenMP-enabled compilers. Try ```brew install gcc --without-multilib```.)
+- openmpi-gcc49 (On macOS, the toolkit needs the High Performance Message Passing Library. Try ```port install openmpi-gcc49```).
 
 ### 1.2. Getting Started
 #### Download:

@@ -56,7 +56,9 @@ if __name__ == '__main__':
             fromNode = line[0]
             toNode = line[1]
             text_text_dict[fromNode].add(toNode)
+            text_text_dict[toNode].add(fromNode)
             vocabulary_set.update([fromNode, toNode])
+            vocabulary_set.update([toNode, fromNode])
     for word in vocabulary_set:
         text_text_dict[word].add(word)
 

@@ -110,7 +110,7 @@ ice.save_weights(model_name='example.embd')
 
 ## 3. Experimental Results
 Here, we report the average performance based on 10 embeddings trained under the same setting. For more details, please refer to our [paper](http://dl.acm.org/citation.cfm?doid=3077136.3080807).
-- OMDB word-to-movie retrieval task:
+- IMDB word-to-movie retrieval task:
     - Graph construction: 20 representative words per item and 5 expanded words per representative word.
     - Embedding learning: dim=256, sample=200, neg=2
 
@@ -120,16 +120,6 @@ Here, we report the average performance based on 10 embeddings trained under the
 | Precision@100  |  0.316 |   0.203  |  0.281  |  0.423 | 0.080 |  0.382 |  0.281  |
 
 
-- KKBOX word-to-song retrieval task:
-    - Graph construction: 10 representative words per item and 3 expanded words per representative word.
-    - Embedding learning: dim=300, sample=10000, neg=5
-
-|Query|失落 (lost)|心痛 (heartache)|想念 (pining)|深愛 (affectionate)|難過 (sad)|回家 (home)|房間 (room)|海邊 (seaside)|火車 (train)|花園 (garden)|夕陽 (dusk)|日出 (sunrise)|日落 (sunset)|月亮 (moon)|黑夜 (night)|Average|
-|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-|Keyword precision@100|0.550|0.266|0.573|0.523|0.544|0.959|0.520|0.360|0.484|0.451|0.376|0.400|0.610|0.897|0.506|0.535|
-|Concept-similar word Precision@100|0.063|0.496|0.039|0.263|0.033|0.086|0.049|0.110|0.026|0.000|0.111|0.711|0.506|0.361|0.017|0.191|
-
-    
 ## 4. Citation
 ```
 @inproceedings{Wang:2017:IIC:3077136.3080807,

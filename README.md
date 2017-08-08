@@ -8,7 +8,7 @@ In specific, ICE incorporates items and their representative concepts (words ext
 - g++ 4.9
 - python3
 - cython
-- openmpi-gcc49 (On macOS, the toolkit needs the High Performance Message Passing Library. Try ```port install openmpi-gcc49```).
+- openmpi-gcc49 (On macOS, the toolkit needs the library. Try ```port install openmpi-gcc49```).
 
 ### 1.2. Getting Started
 #### Download:

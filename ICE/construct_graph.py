@@ -38,7 +38,7 @@ if __name__ == '__main__':
     text_text_dict = defaultdict(set)
     print(input_path, output_path, word_edge_path)
 
-    print('Construct item-text structure...')
+    print('Constructing item-text structure...')
     with open(input_path) as f:
         for line in f:
             line = line.split()
@@ -49,7 +49,7 @@ if __name__ == '__main__':
 
     item_set = {y:x for x,y in item_set.items()}
 
-    print('Construct text-text structure...')
+    print('Constructing text-text structure...')
     with open(word_edge_path) as f:
         for line in f:
             line = line.split()

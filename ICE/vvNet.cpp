@@ -165,7 +165,7 @@ void vvNet::LoadEdgeList(string filename) {
  
             if (line % MONITOR == 0)
             {
-                printf("\tProgress:\t\t%.2f %%%c", (double)(line)/(MAX_line+1) * 100, 13);
+                printf("\tProgress:\t\t%.2f %%%c", (double)(line)/(MAX_edge+1) * 100, 13);
                 fflush(stdout);
             }
         }

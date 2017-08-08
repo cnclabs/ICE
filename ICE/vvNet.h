@@ -19,9 +19,6 @@
 #include <omp.h>
 #include <dirent.h>
 #include <sys/stat.h>
-#include <boost/random/mersenne_twister.hpp>
-#include <boost/random/uniform_real_distribution.hpp>
-#include <boost/random/random_device.hpp>
 
 using namespace std;
 

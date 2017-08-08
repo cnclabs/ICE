@@ -7,8 +7,8 @@ ext_modules = Extension("pyICE",
                 library_dirs=["./"],
                 include_dirs=["./"],
                 language="g++",
-                extra_compile_args=["-std=c++11", "-O3", "-ffast-math", "-march=native", "-fopenmp", "-lpthread"],
-                extra_link_args=["-std=c++11", "-fopenmp", "-lboost_random"]
+                extra_compile_args=["-std=c++11", "-O3", "-fopenmp", "-lm", "-fPIC"],
+                extra_link_args=["-std=c++11", "-fopenmp"]
                 )
 
 setup(

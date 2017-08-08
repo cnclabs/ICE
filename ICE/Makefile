@@ -12,3 +12,6 @@ clean:
 	rm ./ice
 	rm $(OBJECTS)
 	rm ./libvvNet.a
+	rm -r ./build
+	rm ./pyICE.cpp
+	rm ./pyICE.so

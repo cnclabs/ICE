@@ -8,7 +8,7 @@ In specific, ICE incorporates items and their representative concepts (words ext
 - g++ 4.9
 - python3
 - cython
-- openmpi (On macOS, the toolkit needs the library. Try ```port install openmpi-gcc49``` or ```brew install openmpi --build-from-source```. You can follow [this topic](https://stackoverflow.com/questions/27930481/how-to-build-openmpi-with-homebrew-and-gcc-4-9m) to install openmpi. And then please modify the lines of `CC` and `CXX` in Makefile).
+- openmpi (On macOS, try ```port install openmpi-gcc49``` or ```brew install openmpi --build-from-source```, for the details of which you can follow [this topic](https://stackoverflow.com/questions/27930481/how-to-build-openmpi-with-homebrew-and-gcc-4-9m) to install the library).
 
 ### 1.2. Getting Started
 #### Download:

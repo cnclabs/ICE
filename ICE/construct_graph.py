@@ -10,9 +10,10 @@ from copy import deepcopy
 if __name__ == '__main__':
     PARSER = argparse.ArgumentParser(description='Transform text data to edge list file.')
 
-    PARSER.add_argument('-et', '--entitytext', default=None, help='Entity-Text edgelist File Name')
     PARSER.add_argument('-ice', '--icefile', default=None, help='ICE graph File Name')
+    PARSER.add_argument('-et', '--entitytext', default=None, help='Entity-Text edgelist File Name')
     PARSER.add_argument('-tt', '--textedges', default=None, help='Text-Text edgelist File Name')
+    PARSER.add_argument('-ee', '--entityentity', default=None, help='Entity-Entity edgelist File Name')
 
     CONFIG = PARSER.parse_args()
 
@@ -84,6 +85,15 @@ if __name__ == '__main__':
             continue
         for w in word2word:
             edge_list.append((word, w))
+
+    if CONFIG.entityentity != None:
+        with open(CONFIG.entityentity) as f:
+            for line in f:
+                line = line.split()
+                fromNode = line[0]
+                toNode = line[1]
+                edge_list.append((fromNode, toNode))
+                edge_list.append((toNode, fromNode))
 
     with open(output_path, 'w') as f:
         for edge in edge_list:

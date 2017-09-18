@@ -702,5 +702,45 @@ void vvNet::UpdatePair(vector< vector<double> >& w_vertex, vector< vector<double
 
 }
 
+void vvNet::UpdateVertex(vector< vector<double> >& w_vertex, vector< vector<double> >& w_context, long vertex, long context, int dimension, int negative_samples, double alpha){
+    
+    vector< double >* w_vertex_ptr;
+    vector< double >* w_context_ptr;
+    vector< double > back_err;
+    back_err.resize(dimension, 0.0);
+
+    int d;
+    long rand_v;
+    double label, g, f, rand_p;
+    
+    label = 1.0;
+    w_vertex_ptr = &w_vertex[vertex];
+    w_context_ptr = &w_context[context];
+
+    negative_samples += 1;
+    // 0 for postive sample, others for negative sample
+    for (int neg=0; neg!=negative_samples; ++neg)
+    {
+        // negative sampling
+        if (neg!=0){
+            label = 0.0;
+            w_context_ptr = &w_context[ NegativeSample() ]; // Negative Sample
+        }
+
+        f = 0;
+        for (d=0; d<dimension; ++d) // prediciton
+            f += (*w_vertex_ptr)[d] * (*w_context_ptr)[d];
+        f = fastSigmoid(f); // fast sigmoid(prediction)
+        g = (label - f) * alpha; // gradient
+        for (d=0; d<dimension; ++d) // store the back propagation error
+            back_err[d] += g * (*w_context_ptr)[d];
+        //for (d=0; d<dimension; ++d) // update context
+        //    (*w_context_ptr)[d] += g * (*w_vertex_ptr)[d];
+    }
+    for (d=0; d<dimension; ++d)
+        (*w_vertex_ptr)[d] += back_err[d];
+
+}
+
 
 

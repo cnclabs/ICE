@@ -112,7 +112,10 @@ class vvNet {
         
         // vertex vector, context vector, vertex, context, dimension, negative samples, alpha
         void UpdatePair(vector< vector<double> >&, vector< vector<double> >&, long, long, int, int, double);
-                
+
+        // vertex vector, context vector, vertex, context, dimension, negative samples, alpha
+        void UpdateVertex(vector< vector<double> >&, vector< vector<double> >&, long, long, int, int, double);
+               
         // vertex vector, context vector, vertex, context, dimension, negative samples, community walk steps, alpha
         void UpdateCommunity(vector< vector<double> >&, vector< vector<double> >&, long, long, int, int, int, double);
 

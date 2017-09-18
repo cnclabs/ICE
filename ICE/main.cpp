@@ -53,7 +53,7 @@ int main(int argc, char **argv){
     if ((i = ArgPos((char *)"-sample", argc, argv)) > 0) sample_times = atoi(argv[i + 1]);
     if ((i = ArgPos((char *)"-neg", argc, argv)) > 0) negative_samples = atoi(argv[i + 1]);
     if ((i = ArgPos((char *)"-alpha", argc, argv)) > 0) init_alpha = atof(argv[i + 1]);
-    if ((i = ArgPos((char *)"-thread", argc, argv)) > 0) threads = atoi(argv[i + 1]);
+    if ((i = ArgPos((char *)"-threads", argc, argv)) > 0) threads = atoi(argv[i + 1]);
     
     char ic_format[10] = "ic";
     char vv_format[10] = "vv";
@@ -61,20 +61,6 @@ int main(int argc, char **argv){
     ICE *ice;
     ice = new ICE();
     ice->LoadEdgeList(network_file);
-    /*
-    if (!strcmp(format, ic_format))
-    {
-        ice->LoadItemConceptList(network_file);
-    }
-    else if (!strcmp(format, vv_format))
-    {
-    }
-    else
-    {
-        cout << "worng -format argument" << endl;
-        return 1;
-    }
-    */
     ice->Init(dimensions);
     ice->Train(sample_times, negative_samples, init_alpha, threads);
     ice->SaveWeights(rep_file);

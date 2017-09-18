@@ -27,6 +27,8 @@ int main(int argc, char **argv){
         printf("\t\tFormat of the train network; ic or vv\n");
         printf("\t-save <string>\n");
         printf("\t\tSave the representation data\n");
+        printf("\t-save_times <int>\n");
+        printf("\t\tsave a model <int> times; default is 1\n");
         printf("\t-dimensions <int>\n");
         printf("\t\tDimension of vertex representation; default is 64\n");
         printf("\t-negative_samples <int>\n");
@@ -43,12 +45,13 @@ int main(int argc, char **argv){
     }
     
     char network_file[100], rep_file[100], format[100];
-    int dimensions=64, negative_samples=5, sample_times=10, threads=1;
+    int dimensions=64, negative_samples=5, sample_times=10, save_times=1, threads=1;
     double init_alpha=0.025;
 
     if ((i = ArgPos((char *)"-train", argc, argv)) > 0) strcpy(network_file, argv[i + 1]);
     if ((i = ArgPos((char *)"-format", argc, argv)) > 0) strcpy(format, argv[i + 1]);
     if ((i = ArgPos((char *)"-save", argc, argv)) > 0) strcpy(rep_file, argv[i + 1]);
+    if ((i = ArgPos((char *)"-save_times", argc, argv)) > 0) save_times = atoi(argv[i + 1]);
     if ((i = ArgPos((char *)"-dim", argc, argv)) > 0) dimensions = atoi(argv[i + 1]);
     if ((i = ArgPos((char *)"-sample", argc, argv)) > 0) sample_times = atoi(argv[i + 1]);
     if ((i = ArgPos((char *)"-neg", argc, argv)) > 0) negative_samples = atoi(argv[i + 1]);
@@ -61,23 +64,27 @@ int main(int argc, char **argv){
     ICE *ice;
     ice = new ICE();
     ice->LoadEdgeList(network_file);
-    /*
-    if (!strcmp(format, ic_format))
-    {
-        ice->LoadItemConceptList(network_file);
-    }
-    else if (!strcmp(format, vv_format))
-    {
-    }
-    else
-    {
-        cout << "worng -format argument" << endl;
-        return 1;
-    }
-    */
     ice->Init(dimensions);
-    ice->Train(sample_times, negative_samples, init_alpha, threads);
-    ice->SaveWeights(rep_file);
+    
+    int sub_sample_times = sample_times/save_times;
+    double alpha_max=init_alpha, alpha_min=init_alpha;
+    for (int i=0; i<save_times; ++i)
+    {
+        alpha_max = alpha_min;
+        alpha_min = init_alpha*((double)(save_times-i-1)/save_times);
+        if (alpha_min < init_alpha*0.0001) alpha_min = init_alpha*0.0001;
+        ice->Train(sub_sample_times, negative_samples, alpha_max, alpha_min, threads);
+
+        if (i==(save_times-1))
+        {
+            ice->SaveWeights(rep_file);
+        }
+        else
+        {
+            string sub_rep_file = rep_file + string(".") + to_string(i);
+            ice->SaveWeights(sub_rep_file);
+        }
+    }
 
     return 0;
 

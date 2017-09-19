@@ -23,8 +23,6 @@ int main(int argc, char **argv){
         printf("Options:\n");
         printf("\t-train <string>\n");
         printf("\t\tTrain the Network data\n");
-        printf("\t-format <format>\n");
-        printf("\t\tFormat of the train network; ic or vv\n");
         printf("\t-save <string>\n");
         printf("\t\tSave the representation data\n");
         printf("\t-dimensions <int>\n");
@@ -42,21 +40,17 @@ int main(int argc, char **argv){
         return 0;
     }
     
-    char network_file[100], rep_file[100], format[100];
+    char network_file[100], rep_file[100];
     int dimensions=64, negative_samples=5, sample_times=10, threads=1;
     double init_alpha=0.025;
 
     if ((i = ArgPos((char *)"-train", argc, argv)) > 0) strcpy(network_file, argv[i + 1]);
-    if ((i = ArgPos((char *)"-format", argc, argv)) > 0) strcpy(format, argv[i + 1]);
     if ((i = ArgPos((char *)"-save", argc, argv)) > 0) strcpy(rep_file, argv[i + 1]);
-    if ((i = ArgPos((char *)"-dim", argc, argv)) > 0) dimensions = atoi(argv[i + 1]);
-    if ((i = ArgPos((char *)"-sample", argc, argv)) > 0) sample_times = atoi(argv[i + 1]);
-    if ((i = ArgPos((char *)"-neg", argc, argv)) > 0) negative_samples = atoi(argv[i + 1]);
+    if ((i = ArgPos((char *)"-dimensions", argc, argv)) > 0) dimensions = atoi(argv[i + 1]);
+    if ((i = ArgPos((char *)"-sample_times", argc, argv)) > 0) sample_times = atoi(argv[i + 1]);
+    if ((i = ArgPos((char *)"-negative_samples", argc, argv)) > 0) negative_samples = atoi(argv[i + 1]);
     if ((i = ArgPos((char *)"-alpha", argc, argv)) > 0) init_alpha = atof(argv[i + 1]);
     if ((i = ArgPos((char *)"-threads", argc, argv)) > 0) threads = atoi(argv[i + 1]);
-    
-    char ic_format[10] = "ic";
-    char vv_format[10] = "vv";
 
     ICE *ice;
     ice = new ICE();

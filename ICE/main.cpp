@@ -1,10 +1,10 @@
-#define _GLIBCXX_USE_CXX11_ABI 0
+#define _GLIBCXX_USE_CXX11_ABI 1
 #include "./ICE.h"
 
 int ArgPos(char *str, int argc, char **argv) {
     int a;
     for (a = 1; a < argc; a++) if (!strcmp(str, argv[a])) {
-        if (a == argc - 1) {
+        if ((a == argc - 1) || (*argv[a+1]=='-')) {
             printf("Argument missing for %s\n", str);
             exit(1);
         }

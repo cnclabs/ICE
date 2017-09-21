@@ -36,7 +36,7 @@ int main(int argc, char **argv){
         printf("\t-alpha <float>\n");
         printf("\t\tInit learning rate; default is 0.025\n");
         printf("\nExample Usage:\n");
-        printf("\t./cli -train network.txt -save rep.txt -dim 64 -sample 10 -neg 5 -alpha 0.025 -thread 4\n\n");
+        printf("\t./ice -train network.txt -save rep.txt -dim 64 -sample 10 -neg 5 -alpha 0.025 -thread 4\n\n");
         return 0;
     }
     

@@ -1,4 +1,4 @@
-#define _GLIBCXX_USE_CXX11_ABI 0
+#define _GLIBCXX_USE_CXX11_ABI 1 // ignore any pre-define versions
 #include "./ICE.h"
 
 int ArgPos(char *str, int argc, char **argv) {

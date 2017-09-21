@@ -40,7 +40,7 @@ int main(int argc, char **argv){
         printf("\t-alpha <float>\n");
         printf("\t\tInit learning rate; default is 0.025\n");
         printf("\nExample Usage:\n");
-        printf("\t./cli -train network.txt -save rep.txt -dimensions 64 -sample_times 10 -negative_samples 5 -alpha 0.025 -threads 4\n\n");
+        printf("\t./ice -train network.txt -save rep.txt -dim 64 -sample 10 -neg 5 -alpha 0.025 -thread 4\n\n");
         return 0;
     }
     
@@ -66,10 +66,11 @@ int main(int argc, char **argv){
     ice->LoadEdgeList(network_file);
     ice->Init(dimensions);
     
-    int sub_sample_times = sample_times/save_times;
+    int sub_sample_times = sample_times/save_times, current_sample_times=0;
     double alpha_max=init_alpha, alpha_min=init_alpha;
     for (int i=0; i<save_times; ++i)
     {
+        current_sample_times += sub_sample_times;
         alpha_max = alpha_min;
         alpha_min = init_alpha*((double)(save_times-i-1)/save_times);
         if (alpha_min < init_alpha*0.0001) alpha_min = init_alpha*0.0001;
@@ -81,7 +82,7 @@ int main(int argc, char **argv){
         }
         else
         {
-            string sub_rep_file = rep_file + string(".") + to_string(i);
+            string sub_rep_file = rep_file + string(".") + to_string(current_sample_times);
             ice->SaveWeights(sub_rep_file);
         }
     }

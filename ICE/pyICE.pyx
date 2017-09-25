@@ -24,7 +24,7 @@ cdef extern from "./ICE.h":
 
         # model function
         void Init(int)
-        void Train(int, int, double, int)
+        void Train(int, int, double, double, int)
 
 cdef class pyICE:
     
@@ -56,6 +56,6 @@ cdef class pyICE:
         self.c_ICE.SaveWeights(model_name.encode('utf-8'))
 
     def train(self, sample_times=10, negative_samples=5, alpha=0.025, workers=1):
-        self.c_ICE.Train(sample_times, negative_samples, alpha, workers)
+        self.c_ICE.Train(sample_times, negative_samples, alpha, alpha*0.001, workers)
 
 

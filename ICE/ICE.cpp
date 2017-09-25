@@ -70,7 +70,7 @@ void ICE::Init(int dimension) {
 }
 
 
-void ICE::Train(int sample_times, int negative_samples, double alpha, int workers){
+void ICE::Train(int sample_times, int negative_samples, double alpha, double alpha_min, int workers){
     
     omp_set_num_threads(workers);
 
@@ -86,8 +86,8 @@ void ICE::Train(int sample_times, int negative_samples, double alpha, int worker
     cout << "Start Training:" << endl;
 
     unsigned long long total_sample_times = (unsigned long long)sample_times*1000000;
-    double alpha_min = alpha * 0.0001;
-    double alpha_last;
+    double alpha_last, alpha_reduce;
+    alpha_reduce = (alpha-alpha_min)/(total_sample_times/MONITOR);
     
     unsigned long long current_sample = 0;
     unsigned long long jobs = total_sample_times/workers;
@@ -108,7 +108,7 @@ void ICE::Train(int sample_times, int negative_samples, double alpha, int worker
             count++;
             if (count % MONITOR == 0)
             {
-                _alpha = alpha* ( 1.0 - (double)(current_sample)/total_sample_times );
+                _alpha -= alpha_reduce;
                 current_sample += MONITOR;
                 if (_alpha < alpha_min) _alpha = alpha_min;
                 alpha_last = _alpha;

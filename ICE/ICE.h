@@ -29,7 +29,7 @@ class ICE {
         
         // model function
         void Init(int);
-        void Train(int, int, double, int);
+        void Train(int, int, double, double, int);
 
 };
 

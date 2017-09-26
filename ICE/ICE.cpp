@@ -87,6 +87,7 @@ void ICE::Train(int sample_times, int negative_samples, double alpha, double alp
 
     unsigned long long total_sample_times = (unsigned long long)sample_times*1000000;
     double alpha_last, alpha_reduce;
+    double _alpha = alpha;
     alpha_reduce = (alpha-alpha_min)/(total_sample_times/MONITOR);
     
     unsigned long long current_sample = 0;
@@ -96,7 +97,6 @@ void ICE::Train(int sample_times, int negative_samples, double alpha, double alp
     for (int worker=0; worker<workers; ++worker)
     {
         unsigned long long count = 1;
-        double _alpha = alpha;
         long v1, v2;
         
         while (count<jobs)

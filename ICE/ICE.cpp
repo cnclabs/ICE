@@ -18,7 +18,11 @@ void ICE::LoadDict(unordered_map<string, unordered_map<string, double>>& graph) 
     vvnet.LoadDict(graph);
 }
 
-void ICE::SaveWeights(string model_name){
+void ICE::LoadWeights(string filename){
+    vvnet.LoadWeights(filename, w_context);
+}
+
+void ICE::SaveVertexWeights(string model_name){
     
     cout << "Save Model:" << endl;
     ofstream model(model_name);
@@ -41,6 +45,66 @@ void ICE::SaveWeights(string model_name){
     {
         cout << "\tfail to open file" << endl;
     }
+}
+
+void ICE::SaveContextWeights(string model_name){
+    
+    cout << "Save Model:" << endl;
+    ofstream model(model_name);
+    if (model)
+    {
+        //model << vvnet.MAX_vid << " " << dim << endl;
+        for (auto k: vvnet.keys)
+        {
+            if (vvnet.vertex[vvnet.kmap[k]].branch > 0)
+            {
+                model << k;
+                for (int d=0; d<dim; ++d)
+                    model << " " << w_context[vvnet.kmap[k]][d];
+                model << endl;
+            }
+        }
+        cout << "\tSave to <" << model_name << ">" << endl;
+    }
+    else
+    {
+        cout << "\tfail to open file" << endl;
+    }
+}
+
+void ICE::SaveEntityWeights(string model_name){
+    
+    cout << "Save Model:" << endl;
+    ofstream model(model_name);
+    int i = 0;
+    if (model)
+    {
+        //model << vvnet.MAX_vid << " " << dim << endl;
+        for (auto k: vvnet.keys)
+        {
+            // cout << k << endl;
+            if (i < vocab_count){
+                i++;
+                continue;
+            }
+            if (vvnet.vertex[vvnet.kmap[k]].branch > 0)
+            {
+                model << k;
+                for (int d=0; d<dim; ++d)
+                    model << " " << w_vertex[vvnet.kmap[k]][d];
+                model << endl;
+            }
+        }
+        cout << "\tSave to <" << model_name << ">" << endl;
+    }
+    else
+    {
+        cout << "\tfail to open file" << endl;
+    }
+}
+
+int ICE::getVocabCount(){
+    vocab_count = vvnet.keys.size();
 }
 
 void ICE::Init(int dimension) {
@@ -70,7 +134,7 @@ void ICE::Init(int dimension) {
 }
 
 
-void ICE::Train(int sample_times, int negative_samples, double alpha, double alpha_min, int workers){
+void ICE::Train(int sample_times, int negative_samples, double alpha, double alpha_min, int workers, int vocab_count, string mode){
     
     omp_set_num_threads(workers);
 
@@ -103,7 +167,15 @@ void ICE::Train(int sample_times, int negative_samples, double alpha, double alp
         {            
             v1 = vvnet.SourceSample();
             v2 = vvnet.TargetSample(v1);
-            vvnet.UpdatePair(w_vertex, w_context, v1, v2, dim, negative_samples, _alpha);
+
+            if (mode == "stage1"){
+                vvnet.UpdatePair(w_vertex, w_context, v1, v2, dim, negative_samples, _alpha);
+            }
+            else{
+                if (v1 >= vocab_count){
+                    vvnet.UpdateVertex(w_vertex, w_context, v1, v2, dim, negative_samples, _alpha);
+                }
+            }
 
             count++;
             if (count % MONITOR == 0)

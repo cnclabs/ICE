@@ -43,6 +43,7 @@ class Vertex {
         Vertex() { out_degree=0.0; in_degree=0.0; }
 };
 
+// add flag
 class Context {
     public:
         long vid;
@@ -80,6 +81,8 @@ class vvNet {
         vector< AliasTable > vertex_AT;
         vector< AliasTable > context_AT;
         vector< AliasTable > negative_AT;
+
+        unordered_map< long, unordered_map<long, double> > vv;
         
         // cahce
         vector< double > cached_sigmoid;
@@ -100,6 +103,7 @@ class vvNet {
         // Data Process
         void LoadEdgeList(string);
         void LoadItemConceptList(string);
+        void LoadWeights(string, vector< vector<double> > &);
         void LoadDict(unordered_map<string, unordered_map<string, double>>&);
         
         // Network Process
@@ -115,6 +119,7 @@ class vvNet {
 
         // vertex vector, context vector, vertex, context, dimension, negative samples, alpha
         void UpdateVertex(vector< vector<double> >&, vector< vector<double> >&, long, long, int, int, double);
+        void UpdateContext(vector< vector<double> >&, vector< vector<double> >&, long, long, int, int, double);
                
         // vertex vector, context vector, vertex, context, dimension, negative samples, community walk steps, alpha
         void UpdateCommunity(vector< vector<double> >&, vector< vector<double> >&, long, long, int, int, int, double);

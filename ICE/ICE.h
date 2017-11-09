@@ -34,7 +34,8 @@ class ICE {
         
         // model function
         void Init(int);
-        void Train(int, int, double, double, int, int, string);
+        void TrainStage1(int, int, double, double, int);
+        void TrainStage2(int, int, double, double, int, int);
 
 };
 

@@ -134,7 +134,7 @@ void ICE::Init(int dimension) {
 }
 
 
-void ICE::Train(int sample_times, int negative_samples, double alpha, double alpha_min, int workers, int vocab_count, string mode){
+void ICE::TrainStage1(int sample_times, int negative_samples, double alpha, double alpha_min, int workers){
     
     omp_set_num_threads(workers);
 
@@ -168,13 +168,60 @@ void ICE::Train(int sample_times, int negative_samples, double alpha, double alp
             v1 = vvnet.SourceSample();
             v2 = vvnet.TargetSample(v1);
 
-            if (mode == "stage1"){
-                vvnet.UpdatePair(w_vertex, w_context, v1, v2, dim, negative_samples, _alpha);
+            vvnet.UpdatePair(w_vertex, w_context, v1, v2, dim, negative_samples, _alpha);
+
+            count++;
+            if (count % MONITOR == 0)
+            {
+                _alpha -= alpha_reduce;
+                current_sample += MONITOR;
+                if (_alpha < alpha_min) _alpha = alpha_min;
+                alpha_last = _alpha;
+                printf("\tAlpha: %.6f\tProgress: %.3f %%%c", _alpha, (double)(current_sample)/total_sample_times * 100, 13);
+                fflush(stdout);
             }
-            else{
-                if (v1 >= vocab_count){
-                    vvnet.UpdateVertex(w_vertex, w_context, v1, v2, dim, negative_samples, _alpha);
-                }
+        }
+    }
+    printf("\tAlpha: %.6f\tProgress: 100.00 %%\n", alpha_last);
+
+}
+
+void ICE::TrainStage2(int sample_times, int negative_samples, double alpha, double alpha_min, int workers, int vocab_count){
+    
+    omp_set_num_threads(workers);
+
+    cout << "Model:" << endl;
+    cout << "\t[ICE]" << endl;
+
+    cout << "Learning Parameters:" << endl;
+    cout << "\tsample_times:\t\t" << sample_times << " (*Million)" << endl;
+    cout << "\tnegative_samples:\t" << negative_samples << endl;
+    cout << "\talpha:\t\t\t" << alpha << endl;
+    cout << "\tworkers:\t\t" << workers << endl;
+
+    cout << "Start Training:" << endl;
+
+    unsigned long long total_sample_times = (unsigned long long)sample_times*1000000;
+    double alpha_last, alpha_reduce;
+    double _alpha = alpha;
+    alpha_reduce = (alpha-alpha_min)/(total_sample_times/MONITOR);
+    
+    unsigned long long current_sample = 0;
+    unsigned long long jobs = total_sample_times/workers;
+
+    #pragma omp parallel for
+    for (int worker=0; worker<workers; ++worker)
+    {
+        unsigned long long count = 1;
+        long v1, v2;
+        
+        while (count<jobs)
+        {            
+            v1 = vvnet.SourceSample();
+            v2 = vvnet.TargetSample(v1);
+
+            if (v1 >= vocab_count){
+                vvnet.UpdateVertex(w_vertex, w_context, v1, v2, dim, negative_samples, _alpha);
             }
 
             count++;

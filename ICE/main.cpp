@@ -82,7 +82,7 @@ int main(int argc, char **argv){
         alpha_max = alpha_min;
         alpha_min = init_alpha*((double)(save_times-i-1)/save_times);
         if (alpha_min < init_alpha*0.0001) alpha_min = init_alpha*0.0001;
-        ice->Train(sub_sample_times, negative_samples, alpha_max, alpha_min, threads, ice->vocab_count, "stage1");
+        ice->TrainStage1(sub_sample_times, negative_samples, alpha_max, alpha_min, threads);
 
         if (i==(save_times-1))
         {
@@ -111,7 +111,7 @@ int main(int argc, char **argv){
         alpha_max = alpha_min;
         alpha_min = init_alpha*((double)(save_times-i-1)/save_times);
         if (alpha_min < init_alpha*0.0001) alpha_min = init_alpha*0.0001;
-        ice->Train(sub_sample_times, negative_samples, alpha_max, alpha_min, threads, ice->vocab_count, "stage2");
+        ice->TrainStage2(sub_sample_times, negative_samples, alpha_max, alpha_min, threads, ice->vocab_count);
 
         if (i==(save_times-1))
         {

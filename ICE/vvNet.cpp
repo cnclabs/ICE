@@ -86,6 +86,42 @@ int vvNet::SearchHashTable(string key)
     }
 }
 
+void vvNet::LoadWeights(string filename, vector< vector<double> > &w_context){
+    FILE *fin;
+    char *pch;
+    char c_line[10000]={'\0'};
+    string key;
+    double val = 0;
+    long key_id = 0;
+    int i;
+    
+    fin = fopen(filename.c_str(), "rb");
+    while (fgets(c_line, sizeof(c_line), fin))
+    {
+        bool is_first = true;
+        i = -1;
+
+        pch = strtok(c_line, " ");
+        key = pch;
+        // cout << key << endl;
+        key_id = SearchHashTable(key);
+        if(key_id == -1)
+            continue;
+        // cout << key << ": " << key_id << endl;
+        while(pch != NULL){
+            if(!is_first){
+                val = strtod(pch, NULL);
+                // cout << val << endl;
+                w_context[key_id][i] = val;
+            }
+            is_first = false;
+            pch = strtok(NULL, " ");
+            i++;
+        }
+    }
+    fclose(fin);    
+}
+
 void vvNet::LoadEdgeList(string filename) {
 
     // calculate the total connections
@@ -93,85 +129,67 @@ void vvNet::LoadEdgeList(string filename) {
     char c_line[10000];
     vector< string > filenames;
     vector< int > filelines;
-    
-    // load from a folder or from a file
-    if (isDirectory(filename.c_str()))
-    {
-        DIR *dir;
-        struct dirent *ent;
-        dir = opendir(filename.c_str());
-        while ((ent = readdir (dir)) != NULL) {
-            string fname = filename + "/" + ent->d_name;
-            filenames.push_back(fname);
-        }
-        closedir(dir);
-    }
-    else
-    {
-        filenames.push_back(filename.c_str());
-    }
-    
+    int lines = 0;
+        
     cout << "Preview:" << endl; 
-    for (auto fname: filenames)
+    fin = fopen(filename.c_str(), "rb");
+    while (fgets(c_line, sizeof(c_line), fin))
     {
-        fin = fopen(fname.c_str(), "rb");
-        while (fgets(c_line, sizeof(c_line), fin))
+        if (MAX_edge % MONITOR == 0)
         {
-            if (MAX_edge % MONITOR == 0)
-            {
-                printf("\t# of connection:\t%lld%c", MAX_edge, 13);
-            }
-            ++MAX_edge;
+            printf("\t# of connection:\t%lld%c", MAX_edge, 13);
         }
-        fclose(fin);
-        filelines.push_back(MAX_edge);
+        ++lines;
+        ++MAX_edge;
     }
-    cout << "\t# of connection:\t" << MAX_edge << endl;
+    fclose(fin);
+    cout << "\t# of connection:\t" << lines << endl;
 
     // load the connections
     char v1[160], v2[160];
     double w;
     long vid1, vid2;
-    unordered_map< long, unordered_map<long, double> > vv;     // vertex -> vertex: weight
+    // unordered_map< long, unordered_map<long, double> > vv;     // vertex -> vertex: weight
     
     cout << "Connections Loading:" << endl;
     unsigned long long line = 0;
-    for (int i=0; i<filenames.size();i++)
+
+    fin = fopen(filename.c_str(), "rb");
+    for (int line = 0; line < lines; line++)
     {
-
-        fin = fopen(filenames[i].c_str(), "rb");
-        for (; line != filelines[i]; line++)
+        if ( fscanf(fin, "%s %s %lf", v1, v2, &w) != 3 )
         {
-            if ( fscanf(fin, "%s %s %lf", v1, v2, &w) != 3 )
-            {
-                cout << "\t[ERROR] line " << line << " contains wrong number of column data" << endl; 
-                continue;
-            }
-
-            // generate keys lookup table (kmap)
-            vid1 = SearchHashTable(v1);
-            if (vid1 == -1)
-            {
-                vid1 = InsertHashTable(v1);
-            }
-            vid2 = SearchHashTable(v2);
-            if (vid2 == -1)
-            {
-                vid2 = InsertHashTable(v2);
-            }
-            
-            vv[vid1][vid2] = w;
-            MAX_edge += 1;
- 
-            if (line % MONITOR == 0)
-            {
-                printf("\tProgress:\t\t%.2f %%%c", (double)(line)/(MAX_edge+1) * 200, 13);
-                fflush(stdout);
-            }
+            cout << "\t[ERROR] line " << line << " contains wrong number of column data" << endl; 
+            continue;
         }
-        fclose(fin);
 
+        // cout << v1 << ' ' << v2 << endl;
+        // generate keys lookup table (kmap)
+        vid1 = SearchHashTable(v1);
+        if (vid1 == -1)
+        {
+            vid1 = InsertHashTable(v1);
+            // cout << v1 << ": insert ->" << vid1 << endl;
+        }
+        vid2 = SearchHashTable(v2);
+        if (vid2 == -1)
+        {
+            vid2 = InsertHashTable(v2);
+            // cout << v2 << ": insert ->" << vid2 << endl;
+        }
+        
+        vv[vid1][vid2] = w;
+        MAX_edge += 1;
+
+        if (line % MONITOR == 0)
+        {
+            printf("\tProgress:\t\t%.2f %%%c", (double)(line)/(MAX_edge+1) * 200, 13);
+            fflush(stdout);
+        }
     }
+    fclose(fin);
+
+
     cout << "\tProgress:\t\t100.00 %\r" << endl;
     cout << "\t# of vertex:\t\t" << MAX_vid << endl;
     
